@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haynes Home Improvements Ltd — Bespoke Wardrobes &amp; Kitchens, London</title>
+<meta name="description" content="Haynes Home Improvements Ltd: London's premier bespoke joinery specialists. Custom wardrobes, fitted kitchens, and interior carpentry with exceptional 5.05 Google rating.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;background:#f8f5f0;color:#2c2520;line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+
+/* ========== VARIABLES ========== */
+:root{
+  --bg:#f8f5f0;
+  --bg-alt:#efeae2;
+  --bg-card:#ffffff;
+  --accent:#8b6f4a;
+  --accent-hover:#9e8058;
+  --accent-glow:rgba(139,111,74,0.2);
+  --text:#2c2520;
+  --text-muted:#7a7066;
+  --text-dim:#9c9288;
+  --border:#d6cec4;
+  --max-w:1180px;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+
+/* ========== UTILITY ========== */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.section{padding:clamp(4rem,8vw,7rem) 0}
+.section-label{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;margin-bottom:1rem;letter-spacing:-.01em}
+.section-desc{font-size:.95rem;color:var(--text-muted);max-width:580px;line-height:1.7}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 2rem;border-radius:6px;font-size:.88rem;font-weight:500;transition:transform .35s var(--ease-out),background .35s var(--ease-out),box-shadow .35s var(--ease-out);position:relative}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 28px var(--accent-glow)}
+.btn-outline{border:1.5px solid var(--text);color:var(--text)}
+.btn-outline:hover{background:var(--text);color:var(--bg);transform:translateY(-2px)}
+.btn-ghost{color:var(--text-muted);padding:.8rem 1.2rem}
+.btn-ghost:hover{color:var(--text)}
+.btn .arrow{transition:transform .3s var(--ease-out)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ========== REVEAL ANIMATIONS ========== */
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-35px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(35px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.stagger-children>*{opacity:0;transform:translateY(25px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.stagger-children.visible>*{opacity:1;transform:translateY(0)}
+.stagger-children.visible>*:nth-child(1){transition-delay:.05s}
+.stagger-children.visible>*:nth-child(2){transition-delay:.15s}
+.stagger-children.visible>*:nth-child(3){transition-delay:.25s}
+.stagger-children.visible>*:nth-child(4){transition-delay:.35s}
+
+/* ========== LOAD ANIMATION ========== */
+.load-reveal{opacity:0;transform:translateY(25px)}
+.load-reveal.load-visible{animation:loadUp .8s var(--ease-out) forwards}
+@keyframes loadUp{to{opacity:1;transform:translateY(0)}}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.35s}.delay-4{animation-delay:.5s}.delay-5{animation-delay:.65s}
+
+/* ========== NAV ========== */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1rem 0;background:rgba(248,245,240,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+nav.scrolled{padding:.6rem 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-w);margin:0 auto;padding:0 24px}
+.nav-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:600;letter-spacing:-.02em;color:var(--text)}
+.nav-logo span{color:var(--accent)}
+.nav-menu{display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:.83rem;font-weight:500;color:var(--text-muted);transition:color .3s;position:relative;padding:.25rem 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease-out)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--accent);color:#fff;padding:.55rem 1.4rem;border-radius:6px;font-size:.83rem;font-weight:500;white-space:nowrap;display:inline-flex;align-items:center;gap:.45rem;transition:transform .3s var(--ease-out),background .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 4px 16px var(--accent-glow)}
+.nav-cta .arrow{display:inline-block;transition:transform .3s var(--ease-out)}
+.nav-cta:hover .arrow{transform:translateX(4px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:4px;z-index:101}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s var(--ease-out),opacity .3s var(--ease-out)}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ========== HERO ========== */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(248,245,240,.88) 0%,rgba(248,245,240,.5) 60%,rgba(248,245,240,.9) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:700px;flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(5rem,10vh,7rem)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(139,111,74,.1);border:1px solid rgba(139,111,74,.2);padding:.35rem 1rem;border-radius:100px;font-size:.73rem;font-weight:500;color:var(--accent);margin-bottom:1.2rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,5.5vw,4.2rem);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem;color:var(--text)}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{font-size:clamp(.95rem,1.5vw,1.1rem);color:var(--text-muted);max-width:540px;line-height:1.7;margin-bottom:2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ========== STATS ========== */
+.stats-bar{background:var(--bg-alt);border-bottom:1px solid var(--border)}
+.stats-inner{display:flex;align-items:center;justify-content:center;gap:clamp(2.5rem,6vw,5rem);padding:clamp(2rem,4vw,3rem) 24px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:var(--accent);line-height:1}
+.stat-label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:6px;font-weight:500}
+.stat-rating{color:#e8a020;font-size:1rem;letter-spacing:2px;margin-top:2px}
+
+/* ========== ABOUT ========== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-image{position:relative;border-radius:12px;overflow:hidden}
+.about-image img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.about-image::after{content:'';position:absolute;inset:0;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+.about-text .section-desc{margin-bottom:1.2rem}
+.about-text .section-desc:last-of-type{margin-bottom:2rem}
+
+/* ========== SERVICES ========== */
+.services{background:var(--bg-alt)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.service-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform .4s var(--ease-out),border-color .4s var(--ease-out),box-shadow .4s var(--ease-out);cursor:default}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(139,111,74,.15);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.service-icon{width:48px;height:48px;border-radius:10px;background:rgba(139,111,74,.08);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem}
+.service-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:.5rem}
+.service-card p{font-size:.84rem;color:var(--text-muted);line-height:1.65}
+
+/* ========== PROJECTS ========== */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.project-card{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;background:var(--bg-card);border:1px solid var(--border);transition:transform .4s var(--ease-out),border-color .4s var(--ease-out)}
+.project-card:hover{transform:scale(1.02);border-color:rgba(139,111,74,.12)}
+.project-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+.project-card:hover img{transform:scale(1.05)}
+.project-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(248,245,240,.95) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;opacity:0;transition:opacity .4s var(--ease-out)}
+.project-card:hover .project-overlay{opacity:1}
+.project-overlay h3{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--text)}
+.project-overlay span{font-size:.73rem;color:var(--accent);font-weight:500;margin-top:.2rem}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform .3s var(--ease-out),border-color .3s var(--ease-out)}
+.testimonial-card:hover{transform:translateY(-3px);border-color:rgba(139,111,74,.1)}
+.testimonial-card .rating{color:#e8a020;font-size:.85rem;letter-spacing:2px;margin-bottom:.75rem}
+.testimonial-card blockquote{font-size:.85rem;color:var(--text-muted);line-height:1.7;margin-bottom:1.25rem}
+.testimonial-author{display:flex;align-items:center;gap:.75rem}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;background:var(--border);overflow:hidden;flex-shrink:0}
+.testimonial-avatar img{width:100%;height:100%;object-fit:cover}
+.testimonial-name{font-size:.85rem;font-weight:600}
+.testimonial-role{font-size:.72rem;color:var(--text-dim)}
+
+/* ========== CTA ========== */
+.cta-section{text-align:center;background:var(--bg-alt);border-top:1px solid var(--border)}
+.cta-section .container{max-width:600px}
+.cta-section h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;margin-bottom:1rem}
+.cta-section p{color:var(--text-muted);margin-bottom:2rem;font-size:.95rem}
+
+/* ========== CONTACT ========== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.contact-info{display:flex;flex-direction:column;gap:1.25rem}
+.contact-card{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;transition:border-color .3s var(--ease-out)}
+.contact-card:hover{border-color:rgba(139,111,74,.12)}
+.contact-icon{width:42px;height:42px;border-radius:8px;background:rgba(139,111,74,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;color:var(--accent)}
+.contact-card h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
+.contact-card p{font-size:.82rem;color:var(--text-muted);line-height:1.5}
+.contact-form{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem}
+.form-group{margin-bottom:1.15rem}
+.form-group label{display:block;font-size:.8rem;font-weight:500;color:var(--text-muted);margin-bottom:.35rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.7rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:.88rem;font-family:var(--font-body);transition:border-color .25s;outline:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-form .btn{width:100%;justify-content:center;margin-top:.25rem}
+
+/* ========== FOOTER ========== */
+footer{background:var(--text);color:rgba(255,255,255,.8);padding:3rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+footer h4{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:1rem;color:#fff}
+footer h4 span{color:var(--accent)}
+footer p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:320px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:.55rem}
+footer ul a{font-size:.82rem;color:rgba(255,255,255,.55);transition:color .3s}
+footer ul a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.4)}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:1024px){
+  .services-grid,.projects-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .nav-menu{position:fixed;top:0;right:-100%;width:300px;height:100vh;background:var(--bg-card);flex-direction:column;justify-content:center;padding:4rem 2rem;gap:1.5rem;transition:right .4s var(--ease-out);border-left:1px solid var(--border);z-index:100}
+  .nav-menu.open{right:0}
+  .nav-links{flex-direction:column}
+  .nav-cta{width:100%;text-align:center;padding:.75rem 1.5rem}
+  .nav-toggle{display:flex}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .services-grid,.projects-grid,.testimonials-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* ========== REDUCED MOTION ========== */
+@media(prefers-reduced-motion:reduce){
+  .reveal,.reveal-left,.reveal-right,.stagger-children>*,.load-reveal{opacity:1;transform:none;transition:none;animation:none}
+  *{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo load-reveal delay-1">Haynes<span>.</span></a>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#about" role="menuitem">About</a></li>
+        <li role="none"><a href="#services" role="menuitem">Services</a></li>
+        <li role="none"><a href="#projects" role="menuitem">Our Work</a></li>
+        <li role="none"><a href="#testimonials" role="menuitem">Reviews</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Get a Quote <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=85" alt="" aria-hidden="true" loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-badge load-reveal delay-1">
+      Bespoke Joinery · London
+    </div>
+    <h1 class="load-reveal delay-2">Exceptional <em>craftsmanship</em><br>for your home</h1>
+    <p class="load-reveal delay-3">Haynes Home Improvements Ltd creates bespoke fitted wardrobes, kitchens, and interior joinery in London. Every piece designed, built, and installed to perfection.</p>
+    <div class="hero-actions load-reveal delay-4">
+      <a href="#contact" class="btn btn-primary">Request a Consultation <span class="arrow">→</span></a>
+      <a href="#projects" class="btn btn-ghost">View Our Work <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-bar reveal">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">5.05</div>
+      <div class="stat-rating">★★★★★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="500">0</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="15">0</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal-left">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=85" alt="Beautiful bespoke kitchen interior" loading="lazy">
+      </div>
+      <div class="about-text reveal-right">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">London's trusted name in bespoke joinery</h2>
+        <p class="section-desc">Haynes Home Improvements Ltd brings years of expertise to every project. Based near Great Portland Street in central London, we specialise in bespoke fitted wardrobes, custom kitchens, and high-end interior joinery that transforms spaces.</p>
+        <p class="section-desc">Every project begins with a conversation, understanding how you live, what you need, and the details that matter to you. From initial design through to installation, we manage every stage in-house, keeping every detail on track and the finish exactly as promised.</p>
+        <p class="section-desc">With a 5.05 Google rating and a growing portfolio of delighted clients across London, our reputation is built on one thing: delivering exactly what we promise, beautifully crafted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Bespoke joinery, beautifully executed</h2>
+      <p class="section-desc">From concept to installation. Every piece is designed to fit your space and your life perfectly.</p>
+    </div>
+    <div class="services-grid stagger-children" id="servicesGrid">
+      <div class="service-card">
+        <div class="service-icon">🚪</div>
+        <h3>Bespoke Wardrobes</h3>
+        <p>Fitted wardrobes designed to maximise your space, from walk-in dressing rooms to sleek built-in storage. Custom interiors, finishes, and lighting options.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍳</div>
+        <h3>Custom Kitchens</h3>
+        <p>Handcrafted kitchens tailored to how you cook and entertain. Bespoke cabinetry, premium worktops, and thoughtful storage solutions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📚</div>
+        <h3>Shelving &amp; Storage</h3>
+        <p>Built-in shelving, media units, and display cabinetry. Seamlessly integrated into your space, whether it's a home library or a TV wall.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Our Work</p>
+      <h2 class="section-title">Recent projects</h2>
+      <p class="section-desc">Every project is a collaboration. Here's a look at recent work we're proud to share.</p>
+    </div>
+    <div class="projects-grid stagger-children" id="projectsGrid">
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18b8b7f6a?w=500&q=80" alt="Bespoke fitted wardrobe" loading="lazy">
+        <div class="project-overlay">
+          <h3>Fitted Wardrobe, Marylebone</h3>
+          <span>Bespoke joinery</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=500&q=80" alt="Modern kitchen design" loading="lazy">
+        <div class="project-overlay">
+          <h3>Contemporary Kitchen, Fitzrovia</h3>
+          <span>Full kitchen fit</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=500&q=80" alt="Built-in shelving unit" loading="lazy">
+        <div class="project-overlay">
+          <h3>Media Wall, Bloomsbury</h3>
+          <span>Built-in storage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Reviews</p>
+      <h2 class="section-title">What our clients say</h2>
+      <p class="section-desc">Rated 5.05 on Google. Our clients are our best advocates.</p>
+    </div>
+    <div class="testimonials-grid stagger-children" id="testimonialsGrid">
+      <div class="testimonial-card">
+        <div class="rating">★★★★★</div>
+        <blockquote>"Absolutely thrilled with the TV cabinet and shelves! The craftsmanship is outstanding and they fitted everything perfectly. Would highly recommend."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=60" alt="" loading="lazy">
+          </div>
+          <div>
+            <div class="testimonial-name">Runa Sutradhar</div>
+            <div class="testimonial-role">Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="rating">★★★★★</div>
+        <blockquote>"Would highly recommend this company. Professional, punctual, and the quality of work is excellent. Our new kitchen is exactly what we wanted."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=60" alt="" loading="lazy">
+          </div>
+          <div>
+            <div class="testimonial-name">Peter Sanders</div>
+            <div class="testimonial-role">Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="rating">★★★★★</div>
+        <blockquote>"Absolutely delighted with the wardrobe fitting service. The team was efficient, tidy, and the finished wardrobe looks fantastic. Transformed our bedroom completely."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=60" alt="" loading="lazy">
+          </div>
+          <div>
+            <div class="testimonial-name">Syed Aqib Ali Naqvi</div>
+            <div class="testimonial-role">Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section cta-section">
+  <div class="container reveal">
+    <p class="section-label">Start Your Project</p>
+    <h2>Ready to transform your space?</h2>
+    <p>Whether it's a bespoke wardrobe, a new kitchen, or custom shelving, let's talk about what we can create together.</p>
+    <div>
+      <a href="#contact" class="btn btn-primary">Get a Free Quote <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-desc" style="margin:0 auto">Ready to discuss your project? Reach out for a free, no-obligation consultation.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info stagger-children" id="contactInfo">
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:08003029909">0800 302 9909</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:info@hayneshomeimprovements.co.uk">info@hayneshomeimprovements.co.uk</a></p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Address</h4>
+            <p>Great Portland St, London W1W 5PF<br>Serving all of Greater London</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h4>Hours</h4>
+            <p>Monday – Friday: 8:00 – 16:30<br>Weekends: By appointment</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="e.g. Jane Smith">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 07XXX XXXXXX">
+        </div>
+        <div class="form-group">
+          <label for="project-type">Project Type</label>
+          <select id="project-type" name="project-type">
+            <option value="">Select...</option>
+            <option value="wardrobe">Bespoke Wardrobe</option>
+            <option value="kitchen">Custom Kitchen</option>
+            <option value="shelving">Shelving / Storage</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" required placeholder="Brief description of your project, room dimensions, and any specific requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Enquiry <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Haynes<span>.</span></h4>
+        <p>Haynes Home Improvements Ltd, bespoke joinery specialists based in central London. Crafting beautiful kitchens, wardrobes, and interiors since 2011.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Bespoke Wardrobes</a></li>
+          <li><a href="#services">Custom Kitchens</a></li>
+          <li><a href="#services">Shelving &amp; Storage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Our Work</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Haynes Home Improvements Ltd. All rights reserved.</p>
+      <p>Crafted in London.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+navToggle.addEventListener('click', () => {
+  const open = navMenu.classList.toggle('open');
+  navToggle.classList.toggle('active');
+  navToggle.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  document.getElementById('nav').classList.toggle('scrolled', y > 60);
+}, { passive: true });
+
+/* ===== SCROLL REVEAL ===== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children').forEach(el => observer.observe(el));
+
+/* ===== LOAD REVEAL ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.load-reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('load-visible'), 200 + i * 80);
+  });
+
+  /* ===== COUNTER ===== */
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count, 10);
+          if (isNaN(target)) return;
+          let current = 0;
+          const duration = 1800;
+          const start = performance.now();
+          function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(easeOut * target);
+            if (progress < 1) requestAnimationFrame(update);
+            else el.textContent = target;
+          }
+          requestAnimationFrame(update);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+  }
+
+  /* ===== FORM ===== */
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.btn');
+    btn.innerHTML = '✓ Enquiry Sent';
+    btn.style.background = '#5a7a5a';
+    btn.style.pointerEvents = 'none';
+    setTimeout(() => {
+      btn.innerHTML = 'Send Enquiry <span class="arrow">→</span>';
+      btn.style.background = '';
+      btn.style.pointerEvents = '';
+      form.reset();
+    }, 4000);
+  });
+});
+
+})();
+</script>
+</body>
+</html>
