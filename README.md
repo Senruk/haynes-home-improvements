@@ -14,10 +14,10 @@ Then open http://localhost:8080.
 
 ## What's in it
 
-- A dark forest-green and gold design that takes its colours from the logo.
+- A sage green and beige design (the client's chosen colours), using the logo's sage.
 - A hero image with a slot ready for a looping video (see the commented `<video>` in `index.html`).
 - Service tiles, and a filterable gallery of 23 project photos with a full-size viewer.
-- A four-step "How it works" section and a radar-style coverage map centred on Bedford.
+- A four-step "How it works" section and a real coverage map (Leaflet with OpenStreetMap tiles tinted sage) centred on Bedford. If the map can't load, a drawn map is shown instead.
 - A FAQ section with FAQPage structured data.
 - A quote form set up for Netlify Forms, with a spam honeypot and client-side checks.
 - A sticky Call / WhatsApp / Quote bar on phones.

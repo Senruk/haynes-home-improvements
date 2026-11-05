@@ -249,6 +249,68 @@
     new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
   }
 
+  /* ---------- Coverage map: load Leaflet only when the section is near ---------- */
+  const mapEl = $('[data-coverage-map]');
+  const loadCss = (href) => new Promise((ok, bad) => {
+    const l = Object.assign(document.createElement('link'), { rel: 'stylesheet', href, onload: ok, onerror: bad });
+    document.head.appendChild(l);
+  });
+  const loadJs = (src) => new Promise((ok, bad) => {
+    const s = Object.assign(document.createElement('script'), { src, onload: ok, onerror: bad });
+    document.head.appendChild(s);
+  });
+  const buildMap = () => {
+    const L = window.L;
+    const bedford = [52.136, -0.467];
+    const map = L.map(mapEl, {
+      zoomControl: true, scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false,
+      attributionControl: true, zoomSnap: 0.25,
+    });
+    const area = L.latLng(bedford).toBounds(290000);   // show the whole 115 km ring with room around it
+    const fit = () => map.fitBounds(area, { padding: [12, 12] });
+    fit();
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 13, minZoom: 6,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+    map.attributionControl.setPrefix(false);
+    L.circle(bedford, {
+      radius: 115000, color: '#3f5247', weight: 2.5, opacity: 0.85, dashArray: '10 8', fillColor: '#6d7e74', fillOpacity: 0.16,
+    }).addTo(map);
+    L.marker(bedford, {
+      icon: L.divIcon({ className: '', html: '<div class="map-home"><b></b><b></b><i></i><span>Bedford</span></div>', iconSize: [22, 22], iconAnchor: [11, 11] }),
+      keyboard: false, interactive: false,
+    }).addTo(map);
+    const towns = [
+      ['London', 51.507, -0.128, true, 'bottom'], ['Birmingham', 52.486, -1.89, true, 'top'],
+      ['Milton Keynes', 52.04, -0.76, false, 'left'], ['Northampton', 52.24, -0.902, false, 'left'],
+      ['Luton', 51.879, -0.417, false, 'right'], ['Cambridge', 52.205, 0.122, false, 'right'],
+      ['Oxford', 51.752, -1.258, false, 'left'], ['Coventry', 52.407, -1.512, false, 'bottom'],
+      ['Leicester', 52.637, -1.134, false, 'top'], ['Peterborough', 52.573, -0.243, false, 'right'],
+      ['St Albans', 51.752, -0.336, false, 'right'],
+    ];
+    towns.forEach(([name, lat, lng, city, dir]) => {
+      const marker = L.circleMarker([lat, lng], {
+        radius: city ? 7 : 5, color: '#3f5247', weight: 2, fillColor: '#efe4cf', fillOpacity: 1, interactive: false,
+      }).addTo(map);
+      // The map already prints town names, so only the two end points get our own labels.
+      if (city) marker.bindTooltip(name, { permanent: true, direction: dir, offset: [0, dir === 'top' ? -8 : 8], className: 'map-label is-city' });
+    });
+    $('[data-map-frame]').classList.add('is-live');
+    window.addEventListener('resize', fit);
+  };
+  if (mapEl && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      Promise.all([
+        loadCss('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'),
+        loadJs('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js'),
+      ]).then(buildMap).catch((err) => { console.warn('Map unavailable, showing the drawn map instead.', err); });
+    }, { rootMargin: '600px 0px' });
+    io.observe(mapEl);
+  }
+
   const y = $('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 
@@ -288,9 +350,9 @@
     scrollTrigger: { trigger: '.steps-wrap', start: 'top 80%', once: true },
   });
 
-  // Radar: towns light up in sequence.
-  gsap.from('.radar .town > *, .radar .city > *', {
-    opacity: 0, duration: 0.6, stagger: 0.04, ease: 'power2.out',
-    scrollTrigger: { trigger: '.radar', start: 'top 75%', once: true },
+  // Map frame rises into place.
+  gsap.from('.map-frame', {
+    y: 40, opacity: 0, scale: 0.97, duration: 1.1, ease: 'expo.out',
+    scrollTrigger: { trigger: '.map-frame', start: 'top 85%', once: true },
   });
 })();
