@@ -238,14 +238,14 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- Marquee ---------- */
-.marquee { position: relative; z-index: 1; overflow: hidden; padding-block: clamp(1.4rem, 3vw, 2.2rem); border-block: 1px solid var(--line); background: var(--bg-2); }
+.marquee { position: relative; z-index: 1; overflow: hidden; padding-block: clamp(.7rem, 1.4vw, 1.1rem); border-block: 1px solid var(--line); background: var(--bg-2); }
 .marquee-track { display: flex; align-items: center; gap: clamp(1.5rem, 3vw, 3rem); width: max-content; animation: marquee 40s linear infinite; }
 .marquee span {
-  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.6rem, 1rem + 3vw, 3.4rem); letter-spacing: -0.02em; white-space: nowrap;
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(1.05rem, .8rem + 1.4vw, 1.9rem); letter-spacing: -0.02em; white-space: nowrap;
   color: transparent; -webkit-text-stroke: 1px oklch(0.93 0.04 80 / .55);
 }
 .marquee span:nth-of-type(odd) { color: var(--gold); -webkit-text-stroke: 0; }
-.marquee img { width: clamp(24px, 3vw, 34px); opacity: .8; }
+.marquee img { width: clamp(18px, 1.8vw, 24px); opacity: .8; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
