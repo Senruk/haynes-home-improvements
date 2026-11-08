@@ -68,21 +68,6 @@
     ).join(' ');
   }
 
-  /* ---------- Pause motion (WCAG 2.2.2): stops the video, marquee and pulsing effects ---------- */
-  const motionBtn = $('[data-motion-toggle]');
-  const motionPaused = () => document.documentElement.classList.contains('motion-paused');
-  if (motionBtn) {
-    if (reduce) motionBtn.hidden = true;
-    motionBtn.addEventListener('click', () => {
-      const paused = !motionPaused();
-      document.documentElement.classList.toggle('motion-paused', paused);
-      motionBtn.setAttribute('aria-pressed', String(paused));
-      $('[data-motion-label]').textContent = paused ? 'Play motion' : 'Pause motion';
-      const v = $('[data-hero-video]');
-      if (v && v.src) { if (paused) v.pause(); else v.play().catch(() => {}); }
-    });
-  }
-
   /* ---------- Hero video: 8 s loop of a kitchen being built, portrait cut on phones ---------- */
   const heroVideo = $('[data-hero-video]');
   const conn = navigator.connection || {};
@@ -99,11 +84,11 @@
       heroVideo.classList.add('is-playing');
       $('.hero').classList.add('has-video');
     }, { once: true });
-    if (!motionPaused()) heroVideo.play().catch(() => { /* autoplay blocked: the photo stays */ });
+    heroVideo.play().catch(() => { /* autoplay blocked: the photo stays */ });
     // Pause while the hero is off screen to save battery.
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([e]) => {
-        if (e.isIntersecting && !motionPaused()) heroVideo.play().catch(() => {}); else heroVideo.pause();
+        if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
       }).observe($('.hero'));
     }
     };
