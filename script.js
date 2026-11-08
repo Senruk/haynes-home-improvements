@@ -7,7 +7,7 @@
 
   /* ---------- Smooth scroll (Lenis) ---------- */
   let lenis = null;
-  if (!reduce && window.Lenis) {
+  if (!reduce && finePointer && window.Lenis) {
     lenis = new window.Lenis({ duration: 1.15, easing: (t) => 1 - Math.pow(1 - t, 4) });
     if (hasGsap()) {
       lenis.on('scroll', window.ScrollTrigger.update);
@@ -47,7 +47,11 @@
   const setNav = (open) => {
     header.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
+    if (open) setTimeout(() => $('[data-nav] a').focus(), 50);
   };
+  header.addEventListener('focusout', (e) => {
+    if (header.classList.contains('is-open') && !header.contains(e.relatedTarget)) setNav(false);
+  });
   toggle.addEventListener('click', () => setNav(toggle.getAttribute('aria-expanded') !== 'true'));
   $$('[data-nav] a').forEach((a) => a.addEventListener('click', () => setNav(false)));
   document.addEventListener('keydown', (e) => {
@@ -56,7 +60,7 @@
 
   /* ---------- Hero headline: split into words for the reveal ---------- */
   const title = $('[data-split]');
-  if (title) {
+  if (title && !title.querySelector('.w')) {
     const text = title.textContent.trim();
     const words = text.split(/\s+/);
     title.innerHTML = `<span class="sr-only">${text}</span>` + words.map((w) =>
@@ -64,12 +68,29 @@
     ).join(' ');
   }
 
+  /* ---------- Pause motion (WCAG 2.2.2): stops the video, marquee and pulsing effects ---------- */
+  const motionBtn = $('[data-motion-toggle]');
+  const motionPaused = () => document.documentElement.classList.contains('motion-paused');
+  if (motionBtn) {
+    if (reduce) motionBtn.hidden = true;
+    motionBtn.addEventListener('click', () => {
+      const paused = !motionPaused();
+      document.documentElement.classList.toggle('motion-paused', paused);
+      motionBtn.setAttribute('aria-pressed', String(paused));
+      $('[data-motion-label]').textContent = paused ? 'Play motion' : 'Pause motion';
+      const v = $('[data-hero-video]');
+      if (v && v.src) { if (paused) v.pause(); else v.play().catch(() => {}); }
+    });
+  }
+
   /* ---------- Hero video: 8 s loop of a kitchen being built, portrait cut on phones ---------- */
   const heroVideo = $('[data-hero-video]');
-  const saveData = navigator.connection && navigator.connection.saveData;
+  const conn = navigator.connection || {};
+  const saveData = conn.saveData || /(^|-)2g$|3g/.test(conn.effectiveType || '');
   const webm = heroVideo && heroVideo.canPlayType('video/webm; codecs="vp9"');
   const mp4 = heroVideo && heroVideo.canPlayType('video/mp4; codecs="avc1.640028"');
   if (heroVideo && !reduce && !saveData && (webm || mp4)) {
+    const startVideo = () => {
     const portrait = matchMedia('(max-aspect-ratio: 4/5)').matches;
     // WebM has the seamless dissolve loop; the MP4 is the original clip for browsers without VP9.
     heroVideo.src = !webm ? heroVideo.dataset.srcMp4 : portrait ? heroVideo.dataset.srcMobile : heroVideo.dataset.srcDesktop;
@@ -78,13 +99,18 @@
       heroVideo.classList.add('is-playing');
       $('.hero').classList.add('has-video');
     }, { once: true });
-    heroVideo.play().catch(() => { /* autoplay blocked: the photo stays */ });
+    if (!motionPaused()) heroVideo.play().catch(() => { /* autoplay blocked: the photo stays */ });
     // Pause while the hero is off screen to save battery.
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([e]) => {
-        if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
+        if (e.isIntersecting && !motionPaused()) heroVideo.play().catch(() => {}); else heroVideo.pause();
       }).observe($('.hero'));
     }
+    };
+    // Load the video only after the page itself has finished loading, so it never competes with the first paint.
+    const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 200));
+    const kick = () => idle(startVideo, { timeout: 1500 });
+    if (document.readyState === 'complete') kick(); else window.addEventListener('load', kick, { once: true });
   }
 
   /* ---------- Spotlight follow on tiles and form ---------- */
@@ -116,6 +142,22 @@
   const buttons = $$('[data-filter]');
   const filterStatus = $('[data-filter-status]');
   const visible = () => items.filter((li) => !li.hidden);
+  const moreBtn = $('[data-gallery-more]');
+  const LABELS = { wardrobes: 'fitted wardrobe', dressing: 'dressing room', media: 'media wall', loft: 'loft and eaves', office: 'home office', kitchens: 'kitchen' };
+  let collapsed = true;
+  let currentFilter = 'all';
+  const collapse = () => {
+    const limit = matchMedia('(max-width: 560px)').matches ? 6 : 9;
+    const on = collapsed && currentFilter === 'all';
+    items.forEach((li, i) => li.classList.toggle('is-extra', on && i >= limit));
+    if (moreBtn) moreBtn.hidden = !on;
+  };
+  moreBtn?.addEventListener('click', () => {
+    collapsed = false; collapse();
+    const first = items.find((li, i) => i >= (matchMedia('(max-width: 560px)').matches ? 6 : 9));
+    first && $('.tile', first).focus({ preventScroll: true });
+    if (hasGsap()) window.ScrollTrigger.refresh();
+  });
   buttons.forEach((b) => {
     const f = b.dataset.filter;
     const n = f === 'all' ? items.length : items.filter((li) => li.dataset.cat === f).length;
@@ -130,6 +172,7 @@
     glider.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
   };
   const applyFilter = (f) => {
+    currentFilter = f;
     buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
     moveGlider();
     items.forEach((li, i) => {
@@ -138,12 +181,15 @@
       li.classList.remove('is-in');
       if (show && !reduce) { li.style.animationDelay = `${Math.min(i, 10) * 35}ms`; void li.offsetWidth; li.classList.add('is-in'); }
     });
+    collapse();
     if (hasGsap()) window.ScrollTrigger.refresh();
-    filterStatus.textContent = `Showing ${visible().length} projects`;
+    const n = visible().length;
+    filterStatus.textContent = f === 'all' ? `Showing all ${n} projects` : `Showing ${n} ${LABELS[f] || ''} project${n === 1 ? '' : 's'}`;
   };
   buttons.forEach((b) => b.addEventListener('click', () => applyFilter(b.dataset.filter)));
   $$('[data-filter-link]').forEach((a) => a.addEventListener('click', () => applyFilter(a.dataset.filterLink)));
-  window.addEventListener('resize', moveGlider);
+  window.addEventListener('resize', () => { moveGlider(); collapse(); });
+  collapse();
   document.fonts?.ready.then(moveGlider);
   moveGlider();
 
@@ -161,7 +207,8 @@
     const tile = $('.tile', list[current]);
     lbImg.src = `assets/img/full/${tile.dataset.full}.${webp ? 'webp' : 'jpg'}`;
     lbImg.alt = $('img', tile).alt;
-    lbCap.textContent = `${$('.tile-cap', tile).textContent} (${current + 1} of ${list.length})`;
+    lbCap.innerHTML = '';
+    lbCap.append($('.tile-cap', tile).textContent, Object.assign(document.createElement('span'), { className: 'sr-only', textContent: ` (${current + 1} of ${list.length})` }));
     lbCount.textContent = `${current + 1} of ${list.length}`;
   };
   items.forEach((li) => $('.tile', li).addEventListener('click', (e) => {
@@ -231,13 +278,13 @@
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
       status.classList.add('is-ok');
-      status.textContent = 'Thanks, your enquiry has been sent. We’ll be in touch within two working days to arrange a visit.';
+      status.textContent = 'Thanks, your quote request has been sent. We’ll be in touch to arrange a visit.';
     } catch {
       status.classList.add('is-err');
-      status.textContent = 'Your enquiry didn’t send. Please try again, or call or email us using the details on this page.';
+      status.textContent = 'Your quote request didn’t send. Please try again, or call us free on 0800 302 9909.';
     } finally {
       submit.removeAttribute('aria-disabled');
-      submitLabel.textContent = 'Send my enquiry';
+      submitLabel.textContent = 'Send my quote request';
     }
   });
 
@@ -262,14 +309,17 @@
     });
   });
 
-  /* ---------- Sticky action bar: appears after the hero, hides at the quote form ---------- */
+  /* ---------- Sticky action bar: always there on phones, except at the quote form and footer ---------- */
   const bar = $('[data-action-bar]');
-  if (bar && 'IntersectionObserver' in window) {
-    let pastHero = false;
-    let atQuote = false;
-    const update = () => bar.classList.toggle('is-shown', pastHero && !atQuote);
-    new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; update(); }).observe($('.hero'));
-    new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
+  if (bar) {
+    bar.classList.add('is-shown');
+    if ('IntersectionObserver' in window) {
+      let atQuote = false;
+      let atFooter = false;
+      const update = () => bar.classList.toggle('is-shown', !atQuote && !atFooter);
+      new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
+      new IntersectionObserver(([e]) => { atFooter = e.isIntersecting; update(); }).observe($('.site-footer'));
+    }
   }
 
   /* ---------- Coverage map (UK-wide): load Leaflet only when the section is near ---------- */
@@ -323,7 +373,7 @@
         loadCss('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css'),
         loadJs('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js'),
       ]).then(buildMap).catch((err) => { console.warn('Map unavailable, showing the drawn map instead.', err); });
-    }, { rootMargin: '600px 0px' });
+    }, { rootMargin: '1500px 0px' });
     io.observe(mapEl);
   }
 
@@ -356,7 +406,7 @@
 
   // Bento tiles assemble as they enter.
   gsap.from('.bento-tile', {
-    y: 60, opacity: 0, scale: 0.96, duration: 1.1, ease: 'expo.out', stagger: 0.08,
+    y: 60, opacity: 0, scale: 0.96, duration: 1.1, ease: 'expo.out', stagger: 0.08, clearProps: 'transform,opacity',
     scrollTrigger: { trigger: '.bento', start: 'top 80%', once: true },
   });
 
