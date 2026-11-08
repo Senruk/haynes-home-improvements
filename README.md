@@ -27,9 +27,8 @@ Then open http://localhost:8080.
 ## Before launch
 
 - [ ] Hero video: add `assets/video/hero.mp4` and uncomment the `<video>` block.
-- [ ] Real phone number: replace the `tel:` and `wa.me` links and the displayed number.
-- [ ] Real email address.
+- [x] Real phone number, WhatsApp and emails (added 2026-11-08).
 - [ ] Live domain: replace `www.example.com` in `index.html` (canonical, Open Graph, JSON-LD), `robots.txt` and `sitemap.xml`.
-- [ ] Add `sameAs` social and Google Business Profile links to the JSON-LD.
+- [ ] Add the Google Business Profile link to `sameAs` in the JSON-LD (Facebook and Instagram are in).
 - [ ] Ask the client to confirm the process steps and the FAQ answers.
 - [ ] Deploy to Netlify so the quote form delivers enquiries.
