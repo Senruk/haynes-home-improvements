@@ -856,3 +856,11 @@ a.contact-chip:hover { background: oklch(0.93 0.04 80 / .09); box-shadow: inset 
   .hero-actions { margin-top: 1.4rem; }
   .hero-actions .btn-glass { display: none; }               /* "See our work" is one scroll away */
 }
+
+/* Hero text, a size down (desktop and tablet) */
+.hero-title { font-size: clamp(2.1rem, 1.35rem + 3vw, 4.25rem); }
+.hero-lede { font-size: clamp(1.05rem, 1rem + .25vw, 1.2rem); max-width: 48ch; }
+@media (max-width: 760px) {
+  .hero-title { font-size: clamp(1.8rem, 1rem + 3.7vw, 2.2rem); }
+  .hero-lede { font-size: .97rem; }
+}
