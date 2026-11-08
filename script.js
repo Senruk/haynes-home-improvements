@@ -64,6 +64,29 @@
     ).join(' ');
   }
 
+  /* ---------- Hero video: 8 s loop of a kitchen being built, portrait cut on phones ---------- */
+  const heroVideo = $('[data-hero-video]');
+  const saveData = navigator.connection && navigator.connection.saveData;
+  const webm = heroVideo && heroVideo.canPlayType('video/webm; codecs="vp9"');
+  const mp4 = heroVideo && heroVideo.canPlayType('video/mp4; codecs="avc1.640028"');
+  if (heroVideo && !reduce && !saveData && (webm || mp4)) {
+    const portrait = matchMedia('(max-aspect-ratio: 4/5)').matches;
+    // WebM has the seamless dissolve loop; the MP4 is the original clip for browsers without VP9.
+    heroVideo.src = !webm ? heroVideo.dataset.srcMp4 : portrait ? heroVideo.dataset.srcMobile : heroVideo.dataset.srcDesktop;
+    heroVideo.preload = 'auto';
+    heroVideo.addEventListener('playing', () => {
+      heroVideo.classList.add('is-playing');
+      $('.hero').classList.add('has-video');
+    }, { once: true });
+    heroVideo.play().catch(() => { /* autoplay blocked: the photo stays */ });
+    // Pause while the hero is off screen to save battery.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) heroVideo.play().catch(() => {}); else heroVideo.pause();
+      }).observe($('.hero'));
+    }
+  }
+
   /* ---------- Spotlight follow on tiles and form ---------- */
   if (finePointer) {
     $$('[data-spot]').forEach((el) => el.addEventListener('pointermove', (e) => {

@@ -668,3 +668,27 @@ a.contact-chip:hover { background: oklch(0.93 0.04 80 / .09); box-shadow: inset 
 .map-key .k-ring { width: 14px; height: 14px; border-radius: 50%; border: 2px dashed var(--gold); background: oklch(0.57 0.026 160 / .5); }
 .map-key .k-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
 @media (prefers-reduced-motion: reduce) { .map-home b { animation: none; display: none; } }
+
+
+/* ---------- Hero video: fades in over the photo once it's actually playing ---------- */
+.hero-media { overflow: hidden; }
+.hero-media .hero-video { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s var(--ease); object-position: 56% 50%; }
+.hero-media .hero-video.is-playing { opacity: 1; }
+
+/* While the video plays, open up the right side so the furniture shows; the left stays dark for the headline. */
+.hero-shade::after {
+  content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s var(--ease);
+  background:
+    linear-gradient(to top, var(--bg) 0%, oklch(0.3 0.03 160 / .55) 16%, transparent 40%, transparent 78%, oklch(0.3 0.03 160 / .45) 100%),
+    linear-gradient(90deg, oklch(0.3 0.03 160 / .78) 0%, oklch(0.3 0.03 160 / .45) 34%, transparent 58%);
+}
+.hero.has-video .hero-shade { background: none; }
+.hero.has-video .hero-shade::after { opacity: 1; }
+
+.hero-grid { transition: opacity 1.2s var(--ease); }
+.hero.has-video .hero-grid { opacity: 0; }
+@media (max-width: 760px) {        /* phones: text covers the full width, so keep an even wash for legibility */
+  .hero.has-video .hero-shade::after {
+    background: linear-gradient(to top, var(--bg) 0%, oklch(0.3 0.03 160 / .7) 30%, oklch(0.3 0.03 160 / .45) 60%, oklch(0.3 0.03 160 / .5) 100%);
+  }
+}

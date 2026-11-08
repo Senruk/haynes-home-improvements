@@ -235,18 +235,16 @@
   </header>
 
   <main id="main" tabindex="-1">
-    <!-- HERO: when the looping video arrives, uncomment the <video> and delete the <picture> -->
+    <!-- HERO: the photo shows first; script.js fades in an 8 s loop of a kitchen being built
+         (hero-desktop.webm, hero-mobile.webm on portrait screens, or hero.mp4 where WebM isn't supported). -->
     <section class="hero" id="top">
       <div class="hero-media" data-hero-media>
         <picture>
           <source srcset="assets/img/full/walnut-feature-wall.webp" type="image/webp">
           <img src="assets/img/full/walnut-feature-wall.jpg" alt="Floor-to-ceiling walnut fitted wardrobes with handleless doors, lit by a crystal pendant" width="1800" height="1350" fetchpriority="high">
         </picture>
-        <!--
-        <video autoplay muted loop playsinline poster="assets/img/full/walnut-feature-wall.jpg" aria-hidden="true">
-          <source src="assets/video/hero.mp4" type="video/mp4">
-        </video>
-        -->
+        <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-hero-video
+               data-src-desktop="assets/video/hero-desktop.webm" data-src-mobile="assets/video/hero-mobile.webm" data-src-mp4="assets/video/hero.mp4"></video>
       </div>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
