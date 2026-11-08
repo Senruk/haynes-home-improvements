@@ -864,3 +864,11 @@ a.contact-chip:hover { background: oklch(0.93 0.04 80 / .09); box-shadow: inset 
   .hero-title { font-size: clamp(1.8rem, 1rem + 3.7vw, 2.2rem); }
   .hero-lede { font-size: .97rem; }
 }
+
+/* Hero text, smaller again */
+.hero-title { font-size: clamp(1.9rem, 1.15rem + 2.3vw, 3.5rem); line-height: 1.06; }
+.hero-lede { font-size: clamp(.98rem, .94rem + .2vw, 1.1rem); max-width: 46ch; }
+@media (max-width: 760px) {
+  .hero-title { font-size: clamp(1.65rem, .95rem + 3.3vw, 2rem); }
+  .hero-lede { font-size: .94rem; }
+}
