@@ -205,7 +205,7 @@ button { font: inherit; color: inherit; }
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 70%, #000 0%, transparent 75%);
   mask-image: radial-gradient(ellipse 70% 60% at 30% 70%, #000 0%, transparent 75%);
 }
-.hero-content { width: min(100% - 2 * var(--gutter), 1280px); margin-inline: auto; padding-top: 8rem; padding-bottom: clamp(2rem, 5vh, 3.5rem); }
+.hero-content { width: min(100% - 2 * var(--gutter), 1280px); margin-inline: auto; padding-top: 8rem; padding-bottom: clamp(4rem, 12vh, 8rem); }
 .hero-badge {
   display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.6rem;
   padding: .45rem .95rem .45rem .7rem; border-radius: 999px; font-size: var(--step--1); font-weight: 600; color: var(--gold);
@@ -220,22 +220,21 @@ button { font: inherit; color: inherit; }
 .hero-lede { margin-top: 1.5rem; max-width: 50ch; font-size: var(--step-1); line-height: 1.55; color: var(--text-dim); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.2rem; }
 
-.hero-facts {
-  list-style: none; margin: 0 auto clamp(1.5rem, 4vh, 2.5rem); padding: 0;
-  width: min(100% - 2 * var(--gutter), 1280px);
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border-radius: var(--r-md); overflow: hidden;
-  background: oklch(0.46 0.026 160 / .5); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%);
-  box-shadow: inset 0 0 0 1px var(--line);
+/* ---------- Facts strip (below the hero) ---------- */
+.facts { position: relative; z-index: 1; background: var(--bg); padding-block: clamp(2.5rem, 4vw, 4rem); border-bottom: 1px solid var(--line); }
+.facts-list { list-style: none; margin-block: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem clamp(1.5rem, 4vw, 4rem); }
+.facts-list li { display: flex; align-items: flex-start; gap: 1.1rem; }
+.facts-list li + li { padding-left: clamp(1.5rem, 4vw, 4rem); box-shadow: -1px 0 0 var(--line); }
+.fact-icon {
+  flex: none; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  color: var(--ink-on-gold); background: var(--grad-gold); box-shadow: 0 10px 24px -12px oklch(0.2 0.03 160 / .8);
 }
-.hero-facts li { padding: 1.1rem 1.4rem; display: grid; gap: .15rem; }
-.hero-facts li + li { box-shadow: -1px 0 0 var(--line); }
-.hero-facts strong { font-family: var(--font-display); font-weight: 500; font-size: var(--step-0); color: var(--gold); }
-.hero-facts span { font-size: var(--step--1); color: var(--text-dim); }
-@media (max-width: 760px) {
-  .hero-facts { grid-template-columns: 1fr; }
-  .hero-facts li + li { box-shadow: 0 -1px 0 var(--line); }
-  .hero-facts li { padding: .85rem 1.1rem; }
+.facts-list div { display: grid; gap: .3rem; padding-top: .2rem; }
+.facts-list strong { font-family: var(--font-display); font-weight: 500; font-size: var(--step-1); color: var(--gold); line-height: 1.2; }
+.facts-list span:not(.fact-icon) { color: var(--text-dim); font-size: var(--step-0); }
+@media (max-width: 860px) {
+  .facts-list { grid-template-columns: 1fr; gap: 1.4rem; }
+  .facts-list li + li { padding-left: 0; padding-top: 1.4rem; box-shadow: 0 -1px 0 var(--line); }
 }
 
 /* ---------- Marquee ---------- */

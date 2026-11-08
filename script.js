@@ -347,8 +347,13 @@
   tl.from('[data-hero-media] img, [data-hero-media] video', { scale: 1.15, duration: 2.2 }, 0)
     .from('.hero-title .w > span', { yPercent: 110, duration: 1.1, stagger: 0.05 }, 0.15)
     .from('.hero-badge', { y: 16, opacity: 0, duration: 0.8 }, 0.1)
-    .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.1 }, 0.55)
-    .from('.hero-facts', { y: 30, opacity: 0, duration: 1 }, 0.8);
+    .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.1 }, 0.55);
+
+  // Facts strip rises in as it scrolls into view.
+  gsap.from('.facts-list li', {
+    y: 24, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.facts', start: 'top 85%', once: true },
+  });
 
   // Hero image drifts slower than the page.
   gsap.to('[data-hero-media] img, [data-hero-media] video', {
