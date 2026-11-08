@@ -272,7 +272,7 @@
     new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
   }
 
-  /* ---------- Coverage map: load Leaflet only when the section is near ---------- */
+  /* ---------- Coverage map (UK-wide): load Leaflet only when the section is near ---------- */
   const mapEl = $('[data-coverage-map]');
   const loadCss = (href) => new Promise((ok, bad) => {
     const l = Object.assign(document.createElement('link'), { rel: 'stylesheet', href, onload: ok, onerror: bad });
@@ -284,41 +284,34 @@
   });
   const buildMap = () => {
     const L = window.L;
-    const bedford = [52.136, -0.467];
+    const office = [51.5205, -0.1437];            // 167-169 Great Portland Street, London
     const map = L.map(mapEl, {
       zoomControl: true, scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false,
       attributionControl: true, zoomSnap: 0.25,
     });
-    const area = L.latLng(bedford).toBounds(290000);   // show the whole 115 km ring with room around it
-    const fit = () => map.fitBounds(area, { padding: [12, 12] });
+    const uk = L.latLngBounds([49.9, -6.4], [58.7, 1.8]);
+    const fit = () => map.fitBounds(uk, { padding: [8, 8] });
     fit();
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 13, minZoom: 6,
+      maxZoom: 12, minZoom: 4,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
     map.attributionControl.setPrefix(false);
-    L.circle(bedford, {
-      radius: 115000, color: '#3f5247', weight: 2.5, opacity: 0.85, dashArray: '10 8', fillColor: '#6d7e74', fillOpacity: 0.16,
-    }).addTo(map);
-    L.marker(bedford, {
-      icon: L.divIcon({ className: '', html: '<div class="map-home"><b></b><b></b><i></i><span>Bedford</span></div>', iconSize: [22, 22], iconAnchor: [11, 11] }),
+    // Main cities, linked back to the office: "we come to you", wherever you are.
+    const cities = [
+      [52.486, -1.890], [53.481, -2.242], [53.801, -1.549], [53.408, -2.991], [51.455, -2.588],
+      [51.481, -3.179], [54.978, -1.618], [53.381, -1.470], [52.954, -1.158], [50.909, -1.404],
+      [52.630, 1.297], [55.864, -4.252], [55.953, -3.188], [50.718, -3.533], [52.205, 0.122],
+      [51.752, -1.258], [50.822, -0.137], [54.597, -5.930],
+    ];
+    cities.forEach((c) => {
+      L.polyline([office, c], { color: '#3f5247', weight: 1.8, opacity: 0.7, dashArray: '5 6', interactive: false }).addTo(map);
+      L.circleMarker(c, { radius: 4.5, color: '#3f5247', weight: 2, fillColor: '#efe4cf', fillOpacity: 1, interactive: false }).addTo(map);
+    });
+    L.marker(office, {
+      icon: L.divIcon({ className: '', html: '<div class="map-home"><b></b><b></b><i></i><span>London office</span></div>', iconSize: [22, 22], iconAnchor: [11, 11] }),
       keyboard: false, interactive: false,
     }).addTo(map);
-    const towns = [
-      ['London', 51.507, -0.128, true, 'bottom'], ['Birmingham', 52.486, -1.89, true, 'top'],
-      ['Milton Keynes', 52.04, -0.76, false, 'left'], ['Northampton', 52.24, -0.902, false, 'left'],
-      ['Luton', 51.879, -0.417, false, 'right'], ['Cambridge', 52.205, 0.122, false, 'right'],
-      ['Oxford', 51.752, -1.258, false, 'left'], ['Coventry', 52.407, -1.512, false, 'bottom'],
-      ['Leicester', 52.637, -1.134, false, 'top'], ['Peterborough', 52.573, -0.243, false, 'right'],
-      ['St Albans', 51.752, -0.336, false, 'right'],
-    ];
-    towns.forEach(([name, lat, lng, city, dir]) => {
-      const marker = L.circleMarker([lat, lng], {
-        radius: city ? 7 : 5, color: '#3f5247', weight: 2, fillColor: '#efe4cf', fillOpacity: 1, interactive: false,
-      }).addTo(map);
-      // The map already prints town names, so only the two end points get our own labels.
-      if (city) marker.bindTooltip(name, { permanent: true, direction: dir, offset: [0, dir === 'top' ? -8 : 8], className: 'map-label is-city' });
-    });
     $('[data-map-frame]').classList.add('is-live');
     window.addEventListener('resize', fit);
   };
