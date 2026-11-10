@@ -508,3 +508,102 @@ main:focus { outline: none; }
 }
 
 @media (max-width: 1000px) { .why-grid { grid-auto-rows: auto; } }
+
+/* =====================================================================
+   GREEN THEME: the page itself is sage green (no white backgrounds).
+   Base = lighter sage; panels and cards = deeper greens; text = cream; gold accents.
+   ===================================================================== */
+:root {
+  --paper: oklch(0.5 0.034 158);              /* page background */
+  --paper-2: oklch(0.45 0.032 158);           /* chips, filter bar */
+  --card: oklch(0.43 0.031 158);              /* cards and the form */
+  --sage: oklch(0.405 0.03 159);              /* rounded panels */
+  --sage-deep: oklch(0.33 0.028 160);
+  --sage-soft: oklch(0.56 0.034 158);         /* footer wordmark */
+  --ink: oklch(0.985 0.008 95);
+  --ink-2: oklch(0.92 0.022 105);
+  --line: oklch(1 0 0 / 0.14);
+  --line-2: oklch(1 0 0 / 0.26);
+  --gold-ink: oklch(0.86 0.11 86);            /* gold text and icons on green */
+  --gold-soft: oklch(0.8 0.115 83 / 0.16);
+  --error: oklch(0.86 0.1 35);
+  --ok: oklch(0.9 0.11 140);
+  --shadow: 0 1px 2px oklch(0.2 0.03 160 / .2), 0 14px 34px -16px oklch(0.2 0.03 160 / .55);
+}
+body { background: var(--paper); color: var(--ink); }
+.site-header { background: oklch(0.5 0.034 158 / .86); }
+.site-header.is-solid { border-bottom-color: var(--line); }
+.brand { color: var(--ink); }
+.brand-sub { color: var(--ink-2); }
+.burger i { background: var(--ink); }
+.site-nav a:not(.btn) { color: var(--ink-2); }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); background: oklch(1 0 0 / .1); }
+@media (max-width: 860px) { .site-nav { background: var(--sage); } }
+.statement-text .sw { color: oklch(0.985 0.008 95 / .3); }
+.statement-text .sw.on { color: var(--ink); }
+.ticker span { color: var(--ink-2); }
+.svc { background: var(--card); }
+.svc-go { background: oklch(1 0 0 / .1); color: var(--ink); }
+.why-card { background: var(--card); }
+.why-ic { color: var(--gold-ink); background: var(--gold-soft); }
+.tile-cap { color: var(--ink); background: oklch(0.33 0.028 160 / .88); }
+.filter-glider { background: oklch(1 0 0 / .14); box-shadow: inset 0 0 0 1px var(--line-2); }
+.filters button[aria-pressed="true"], .filters button:hover { color: var(--ink); }
+.filters .count { color: var(--gold-ink); }
+.btn-outline { color: var(--ink); background: transparent; box-shadow: inset 0 0 0 1.5px var(--line-2); }
+.btn-outline:hover { box-shadow: inset 0 0 0 1.5px var(--gold); }
+.quote-form { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line), 0 30px 60px -30px oklch(0.15 0.03 160 / .7); }
+.panel .quote-form p, .panel .quote-form .form-privacy { color: var(--ink-2); }
+.form-privacy a { color: var(--ink); }
+.chips span { color: var(--ink-2); background: oklch(1 0 0 / .06); box-shadow: inset 0 0 0 1px var(--line-2); }
+.chips label:hover span { color: var(--ink); }
+.field input, .field textarea { color: var(--ink); background: oklch(0.36 0.028 160); box-shadow: inset 0 0 0 1px oklch(1 0 0 / .32); }
+.field input:focus, .field textarea:focus { box-shadow: inset 0 0 0 1.5px var(--gold), 0 0 0 4px oklch(0.8 0.115 83 / .25); }
+.field ::placeholder { color: oklch(0.85 0.02 120); }
+.faq-icon { color: var(--ink); }
+.faq-head a { color: var(--ink); text-decoration-color: var(--gold); }
+.footer-label { color: var(--gold-ink); }
+.footer-nav a:hover, .footer-contact a:hover { color: var(--ink); text-decoration-color: var(--gold); }
+.socials a { color: var(--ink); }
+.footer-wordmark { color: var(--sage-soft); }
+.coverage-map .leaflet-control-attribution { background: oklch(0.33 0.028 160 / .85); color: var(--ink-2); }
+.coverage-map .leaflet-control-attribution a { color: var(--ink); }
+.coverage-map .leaflet-bar a { background: var(--sage-deep); color: var(--ink); border-bottom-color: var(--line); }
+.map-label { background: var(--sage-deep) !important; color: var(--ink) !important; }
+.map-pin { background: var(--ink); }
+.lightbox { background: oklch(0.25 0.025 160 / .96); }
+@media (max-width: 760px) {
+  .action-bar { background: oklch(0.36 0.028 160 / .94); box-shadow: inset 0 0 0 1px var(--line-2), 0 18px 40px -14px oklch(0.15 0.03 160 / .7); }
+  .ab-btn { color: var(--ink); background: oklch(1 0 0 / .1); }
+  .ab-primary { background: var(--grad-gold); color: var(--on-gold); }
+}
+:focus-visible { outline-color: var(--gold); }
+
+/* ---------- Homepage: work preview ---------- */
+.work-preview { padding-bottom: var(--section); }
+.wp-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: repeat(2, minmax(200px, 26vh)); gap: 1rem; }
+.wp-tile { position: relative; overflow: hidden; border-radius: var(--r-md); background: var(--card); }
+.wp-tile:first-child { grid-row: span 2; }
+.wp-tile:nth-child(4) { grid-column: span 2; }
+.wp-tile picture, .wp-tile img { width: 100%; height: 100%; object-fit: cover; }
+.wp-tile img { transition: transform .9s var(--ease); }
+.wp-tile:hover img { transform: scale(1.05); }
+.wp-more { display: flex; justify-content: center; margin-top: 1.8rem; }
+@media (max-width: 700px) {
+  .wp-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 150px; }
+  .wp-tile:first-child { grid-row: auto; grid-column: span 2; }
+  .wp-tile:nth-child(4) { display: none; }
+}
+
+/* ---------- Our work page ---------- */
+.page-hero { padding: var(--inset) var(--inset) 0; }
+.page-hero-panel { background: var(--sage); }
+.page-hero-panel > div { display: grid; gap: 1rem; }
+.page-hero-panel h1 { font-size: clamp(2.4rem, 1.4rem + 4vw, 4.6rem); letter-spacing: -0.045em; line-height: .98; }
+.page-hero-panel p { max-width: 58ch; font-size: var(--step-1); line-height: 1.5; }
+.work-page { padding-block: clamp(2.5rem, 2rem + 2vw, 3.5rem) var(--section); }
+.cta-panel { background: var(--sage); margin-bottom: var(--inset); }
+.cta-inner { display: grid; gap: 1rem; justify-items: start; }
+.cta-inner h2 { font-size: clamp(2.2rem, 1.3rem + 3.5vw, 4rem); letter-spacing: -0.045em; line-height: 1; }
+.cta-inner p { max-width: 50ch; font-size: var(--step-1); }
+@media (max-width: 760px) { .cta-inner .hero-actions { width: 100%; } }

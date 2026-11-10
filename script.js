@@ -129,7 +129,7 @@
   const visible = () => items.filter((li) => !li.hidden);
   const moreBtn = $('[data-gallery-more]');
   const LABELS = { wardrobes: 'fitted wardrobe', dressing: 'dressing room', media: 'media wall', loft: 'loft and eaves', office: 'home office', kitchens: 'kitchen' };
-  let collapsed = true;
+  let collapsed = !!moreBtn;
   let currentFilter = 'all';
   const collapse = () => {
     const limit = matchMedia('(max-width: 560px)').matches ? 6 : 9;
@@ -169,17 +169,20 @@
     collapse();
     if (hasGsap()) window.ScrollTrigger.refresh();
     const n = visible().length;
-    filterStatus.textContent = f === 'all' ? `Showing all ${n} projects` : `Showing ${n} ${LABELS[f] || ''} project${n === 1 ? '' : 's'}`;
+    if (filterStatus) filterStatus.textContent = f === 'all' ? `Showing all ${n} projects` : `Showing ${n} ${LABELS[f] || ''} project${n === 1 ? '' : 's'}`;
   };
   buttons.forEach((b) => b.addEventListener('click', () => applyFilter(b.dataset.filter)));
   $$('[data-filter-link]').forEach((a) => a.addEventListener('click', () => applyFilter(a.dataset.filterLink)));
   window.addEventListener('resize', () => { moveGlider(); collapse(); });
+  const startCat = new URLSearchParams(location.search).get('cat');
+  if (startCat && buttons.some((b) => b.dataset.filter === startCat)) applyFilter(startCat);
   collapse();
   document.fonts?.ready.then(moveGlider);
   moveGlider();
 
   /* ---------- Lightbox ---------- */
   const lb = $('[data-lightbox]');
+  if (lb) {
   const lbImg = $('[data-lb-img]');
   const lbCap = $('[data-lb-cap]');
   const lbCount = $('[data-lb-count]');
@@ -219,9 +222,11 @@
     if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
     sx = null;
   });
+  }
 
   /* ---------- Quote form ---------- */
   const form = $('[data-form]');
+  if (form) {
   const status = $('[data-form-status]');
   const submit = $('[data-submit]');
   const submitLabel = $('[data-submit-label]');
@@ -272,6 +277,7 @@
       submitLabel.textContent = 'Send my quote request';
     }
   });
+  }
 
   /* ---------- FAQ accordion: one open at a time, arrow keys move between questions ---------- */
   const faqBtns = $$('.faq-q');
@@ -302,7 +308,7 @@
       let atQuote = false;
       let atFooter = false;
       const update = () => bar.classList.toggle('is-shown', !atQuote && !atFooter);
-      new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
+      if ($('#quote')) new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
       new IntersectionObserver(([e]) => { atFooter = e.isIntersecting; update(); }).observe($('.site-footer'));
     }
   }
@@ -404,7 +410,7 @@
     .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.1 }, 0.55);
 
   // Facts strip rises in as it scrolls into view.
-  gsap.from('.svc, .why-card', {
+  gsap.from('.svc, .why-card, .wp-tile', {
     y: 24, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
     scrollTrigger: { trigger: '.svc-grid', start: 'top 85%', once: true }, clearProps: 'transform,opacity',
   });
