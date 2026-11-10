@@ -586,3 +586,25 @@ body { background: var(--paper); color: var(--ink); }
 .cta-inner h2 { font-size: clamp(2.2rem, 1.3rem + 3.5vw, 4rem); letter-spacing: -0.045em; line-height: 1; }
 .cta-inner p { max-width: 50ch; font-size: var(--step-1); }
 @media (max-width: 760px) { .cta-inner .hero-actions { width: 100%; } }
+
+/* =====================================================================
+   MID-SAGE PAGE: a lighter shade of the panel green (panels stay deeper).
+   ===================================================================== */
+:root {
+  --paper: oklch(0.69 0.038 156);             /* page background */
+  --paper-2: oklch(0.645 0.04 156);           /* filter bar, quiet fills */
+  --card: oklch(0.755 0.034 153);             /* cards, form */
+  --sage-soft: oklch(0.63 0.04 156);          /* footer wordmark */
+  --ink: oklch(0.2 0.03 160);
+  --ink-2: oklch(0.27 0.03 160);
+  --line: oklch(0.2 0.04 160 / 0.18);
+  --line-2: oklch(0.2 0.04 160 / 0.32);
+  --gold-ink: oklch(0.32 0.075 66);
+}
+.site-header { background: oklch(0.69 0.038 156 / .88); }
+.statement-text .sw { color: oklch(0.2 0.03 160 / .3); }
+.tile-cap { background: oklch(0.755 0.034 153 / .94); }
+.field input, .field textarea { background: oklch(0.86 0.025 150); }
+.chips span { background: oklch(0.82 0.03 150); }
+.field ::placeholder { color: oklch(0.38 0.03 155); }
+@media (max-width: 760px) { .action-bar { background: oklch(0.755 0.034 153 / .95); } }
