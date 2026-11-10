@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fitted Wardrobes, Bedrooms &amp; Media Walls UK | Haynes</title>
-  <meta name="description" content="Bespoke bedrooms, fitted wardrobes, media walls, home offices, kitchens and loft storage. Designed, made to measure and fitted nationwide. Free quotes.">
-  <meta name="theme-color" content="#3f5247">
+  <title>Fitted Wardrobes, Bedrooms &amp; Media Walls | Haynes Home Improvements</title>
+  <meta name="description" content="Bespoke bedrooms, fitted wardrobes, media walls, home offices, kitchens and loft storage. Designed, made to measure and fitted up to 200 miles from Bedford, including London, Birmingham and Manchester. Free quotes.">
+  <meta name="theme-color" content="#f4f5f0">
   <link rel="canonical" href="https://haynes-home-improvements.pages.dev/"><!-- When hayneshomeimprovements.com is connected, swap every pages.dev URL (canonical, og, JSON-LD, robots.txt, sitemap.xml) -->
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/favicon.png">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Haynes Home Improvements | Fitted furniture, made to measure">
-  <meta property="og:description" content="Fitted wardrobes, dressing rooms, loft storage, media walls, home offices and kitchens. Bespoke design and build, fitted nationwide.">
+  <meta property="og:title" content="Haynes Home Improvements | Bespoke fitted furniture">
+  <meta property="og:description" content="Fitted wardrobes, bedrooms, media walls, home offices, kitchens and loft storage. Designed, built and fitted up to 200 miles from Bedford.">
   <meta property="og:url" content="https://haynes-home-improvements.pages.dev/">
   <meta property="og:site_name" content="Haynes Home Improvements">
   <meta property="og:image" content="https://haynes-home-improvements.pages.dev/assets/img/og-image.jpg">
@@ -21,12 +21,11 @@
   <meta property="og:image:alt" content="Walnut fitted wardrobes with handleless doors">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Haynes Home Improvements | Bespoke fitted furniture">
-  <meta name="twitter:description" content="Bespoke bedrooms, fitted wardrobes, media walls, home offices, kitchens and loft storage, fitted nationwide.">
+  <meta name="twitter:description" content="Fitted wardrobes, bedrooms, media walls, home offices, kitchens and loft storage, up to 200 miles from Bedford.">
   <meta name="twitter:image" content="https://haynes-home-improvements.pages.dev/assets/img/og-image.jpg">
   <meta property="og:locale" content="en_GB">
 
-  <link rel="preload" href="assets/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/full/walnut-feature-wall-900.webp 900w, assets/img/full/walnut-feature-wall-1200.webp 1200w, assets/img/full/walnut-feature-wall.webp 1800w" imagesizes="100vw">
   <link rel="stylesheet" href="styles.css">
 
@@ -39,7 +38,7 @@
     "url": "https://haynes-home-improvements.pages.dev/",
     "telephone": "+44 800 302 9909",
     "email": "info@hayneshomeimprovements.com",
-    "description": "Bespoke fitted furniture: fitted wardrobes, walk-in wardrobes and dressing rooms, loft and eaves storage, home offices and kitchens.",
+    "description": "Bespoke design and build of fitted furniture: fitted wardrobes, bedrooms, dressing rooms, media walls, home offices, kitchens and loft storage, up to about 200 miles from Bedford.",
     "image": "https://haynes-home-improvements.pages.dev/assets/img/full/walnut-feature-wall.jpg",
     "logo": "https://haynes-home-improvements.pages.dev/assets/logo-green.png",
     "address": {
@@ -50,8 +49,14 @@
       "addressCountry": "GB"
     },
     "areaServed": {
-      "@type": "Country",
-      "name": "United Kingdom"
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.136,
+        "longitude": -0.467
+      },
+      "geoRadius": "321869",
+      "description": "Up to about 200 miles from Bedford, including London, Birmingham and Manchester"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -166,7 +171,7 @@
         "name": "Which areas do you cover?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We cover the whole of the UK from our London office. Add your postcode to the quote form and we’ll arrange a visit to measure up."
+          "text": "We work up to around 200 miles from our base in Bedford, which takes in London, Birmingham, Manchester, Leeds, Bristol, Cardiff and everywhere in between. Add your postcode to the quote form and we’ll arrange a visit."
         }
       },
       {
@@ -203,7 +208,7 @@
   <header class="site-header" data-header>
     <div class="nav-shell">
       <a class="brand" href="#top" aria-label="Haynes Home Improvements, back to top">
-        <img src="assets/mark-cream.png" alt="" width="38" height="39">
+        <img src="assets/mark-green.png" alt="" width="40" height="40">
         <span class="brand-text"><span class="brand-name">Haynes</span><span class="brand-sub">Home Improvements</span></span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -214,7 +219,7 @@
         <a href="#services">What we build</a>
         <a href="#work">Our work</a>
         <a href="#process">How it works</a>
-        <a class="btn btn-primary btn-sm nav-cta" href="#quote"><span>Get a free quote</span></a>
+        <a class="btn btn-gold btn-sm nav-cta" href="#quote"><span>Book a free visit</span></a>
       </nav>
     </div>
   </header>
@@ -223,113 +228,69 @@
     <!-- HERO: the photo shows first; script.js fades in an 8 s loop of a kitchen being built
          (hero-desktop.webm, hero-mobile.webm on portrait screens, or hero.mp4 where WebM isn't supported). -->
     <section class="hero" id="top">
-      <div class="hero-media" data-hero-media>
-        <picture>
-          <source srcset="assets/img/full/walnut-feature-wall-900.webp 900w, assets/img/full/walnut-feature-wall-1200.webp 1200w, assets/img/full/walnut-feature-wall.webp 1800w" sizes="100vw" type="image/webp">
-          <img src="assets/img/full/walnut-feature-wall.jpg" alt="Floor-to-ceiling walnut fitted wardrobes with handleless doors, lit by a crystal pendant" width="1800" height="1350" fetchpriority="high">
-        </picture>
-        <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-hero-video
-               data-src-desktop="assets/video/hero-desktop.webm" data-src-mobile="assets/video/hero-mobile.webm" data-src-mp4="assets/video/hero.mp4"></video>
-      </div>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-
-      <div class="hero-content">
-        <p class="hero-badge" data-hero-in><span class="beam" aria-hidden="true"></span><span class="pulse-dot" aria-hidden="true"></span>Now booking home visits nationwide</p>
-        <h1 class="hero-title" data-split><span class="sr-only">Fitted furniture, built for the room you&rsquo;ve actually got.</span><span class="w" aria-hidden="true"><span>Fitted</span></span> <span class="w" aria-hidden="true"><span>furniture,</span></span> <span class="w" aria-hidden="true"><span>built</span></span> <span class="w" aria-hidden="true"><span>for</span></span> <span class="w" aria-hidden="true"><span>the</span></span> <span class="w" aria-hidden="true"><span>room</span></span> <span class="w" aria-hidden="true"><span>you&rsquo;ve</span></span> <span class="w" aria-hidden="true"><span>actually</span></span> <span class="w" aria-hidden="true"><span>got.</span></span></h1>
-        <p class="hero-lede" data-hero-in>Bedrooms, fitted wardrobes, media walls, home offices, kitchens and loft storage. Bespoke design and build, measured and fitted anywhere in the UK.</p>
-        <div class="hero-actions" data-hero-in>
-          <a class="btn btn-primary btn-lg" href="#quote" data-magnetic>
-            <span>Get a free quote</span>
-            <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="btn btn-glass btn-lg" href="#work" data-magnetic><span>See our work</span></a>
+      <div class="hero-panel">
+        <div class="hero-media" data-hero-media>
+          <picture>
+            <source srcset="assets/img/full/walnut-feature-wall-900.webp 900w, assets/img/full/walnut-feature-wall-1200.webp 1200w, assets/img/full/walnut-feature-wall.webp 1800w" sizes="100vw" type="image/webp">
+            <img src="assets/img/full/walnut-feature-wall.jpg" alt="Floor-to-ceiling walnut fitted wardrobes with handleless doors, lit by a crystal pendant" width="1800" height="1350" fetchpriority="high">
+          </picture>
+          <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-hero-video
+                 data-src-desktop="assets/video/hero-desktop.webm" data-src-mobile="assets/video/hero-mobile.webm" data-src-mp4="assets/video/hero.mp4"></video>
         </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <p class="hero-badge" data-hero-in><span class="pulse-dot" aria-hidden="true"></span>Booking home visits from London to Manchester</p>
+          <h1 class="hero-title" data-split><span class="sr-only">Fitted furniture, built for the room you&rsquo;ve actually got.</span><span class="w" aria-hidden="true"><span>Fitted</span></span> <span class="w" aria-hidden="true"><span>furniture,</span></span> <span class="w" aria-hidden="true"><span>built</span></span> <span class="w" aria-hidden="true"><span>for</span></span> <span class="w" aria-hidden="true"><span>the</span></span> <span class="w" aria-hidden="true"><span>room</span></span> <span class="w" aria-hidden="true"><span>you&rsquo;ve</span></span> <span class="w" aria-hidden="true"><span>actually</span></span> <span class="w" aria-hidden="true"><span>got.</span></span></h1>
+          <p class="hero-lede" data-hero-in>Bedrooms, fitted wardrobes, media walls, home offices, kitchens and loft storage. Designed, built and fitted to measure, up to 200 miles from our Bedford base.</p>
+          <div class="hero-actions" data-hero-in>
+            <a class="btn btn-gold btn-lg" href="#quote" data-magnetic><span>Book a free design visit</span><span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="btn btn-ghost btn-lg" href="#work" data-magnetic><span>See our work</span></a>
+          </div>
+        </div>
+
+        <ul class="hero-stats" data-hero-in>
+          <li><span class="stat-k">Made to measure</span><span class="stat-v">Sized to your room, not a catalogue</span></li>
+          <li><span class="stat-k">Design and build</span><span class="stat-v">Drawn, built and fitted by Haynes</span></li>
+          <li><span class="stat-k">Up to 200 miles</span><span class="stat-v">London, Birmingham, Manchester and between</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="facts" aria-label="Why Haynes">
-      <ul class="wrap facts-list">
-        <li><span class="fact-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 15.5 15.5 3 21 8.5 8.5 21z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 11.5l1.8 1.8M9.8 8.7l2.6 2.6M12.6 5.9l1.8 1.8M10.3 14.8l1.8 1.8M13.2 12l1.8 1.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><strong>Made to measure</strong><span>Sized to your room, not a catalogue</span></div></li>
-        <li><span class="fact-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M14.5 4.5a3.8 3.8 0 0 0-4.9 4.9L3.3 15.7a1.8 1.8 0 0 0 2.5 2.5l6.3-6.3a3.8 3.8 0 0 0 4.9-4.9l-2.3 2.3-2.2-.3-.3-2.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><div><strong>Design and build</strong><span>Designed around your room, then built and fitted</span></div></li>
-        <li><span class="fact-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span><div><strong>Nationwide</strong><span>Covering homes right across the UK</span></div></li>
-      </ul>
-    </section>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Fitted wardrobes</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Dressing rooms</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Loft and eaves storage</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Home offices</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Kitchens</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Media walls</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Bedrooms</span><img src="assets/mark-cream.png" alt="" width="34" height="35">
-        <span>Fitted wardrobes</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Dressing rooms</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Loft and eaves storage</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Home offices</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Kitchens</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Media walls</span><img src="assets/mark-cream.png" alt="" width="34" height="35"><span>Bedrooms</span><img src="assets/mark-cream.png" alt="" width="34" height="35">
-      </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track"><span>Fitted wardrobes</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Bedrooms</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Dressing rooms</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Media walls</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Home offices</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Kitchens</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Loft and eaves storage</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Fitted wardrobes</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Bedrooms</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Dressing rooms</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Media walls</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Home offices</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Kitchens</span><img src="assets/mark-gold.png" alt="" width="18" height="18"><span>Loft and eaves storage</span><img src="assets/mark-gold.png" alt="" width="18" height="18"></div>
     </div>
+
+    <section class="statement" aria-label="About Haynes">
+      <div class="wrap">
+        <p class="statement-text" data-words>Sloping ceilings, awkward alcoves, a chimney breast in the wrong place. Haynes designs and builds furniture around the room you&rsquo;ve actually got, floor to ceiling and wall to wall, then fits it and leaves the room clean.</p>
+        <p class="statement-sign"><img src="assets/mark-gold.png" alt="" width="22" height="22">Haynes Home Improvements Ltd, bespoke design and build</p>
+      </div>
+    </section>
 
     <section class="services" id="services" aria-labelledby="services-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="services-title" class="section-title">What we build</h2>
-          <p>Every piece is designed around the room: sloping ceilings, alcoves, chimney breasts and all. Pick a category to see real jobs.</p>
+          <h2 id="services-title">What we build</h2>
+          <p>Every piece is designed around your room and the way you use it. Pick a category to see real jobs.</p>
         </div>
-
-        <div class="bento">
-          <a class="bento-tile t-wardrobes" href="#work" data-filter-link="wardrobes" data-spot>
-            <picture><source srcset="assets/img/thumb/wardrobe-grey-interior.webp" type="image/webp"><img src="assets/img/thumb/wardrobe-grey-interior.jpg" alt="" width="800" height="600" loading="lazy"></picture>
-            <div class="bento-body">
-              <h3>Fitted wardrobes</h3>
-              <p>Hinged or sliding, painted or wood-grain, with rails, shelves and drawers laid out the way you use them.</p>
-            </div>
-            <span class="bento-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="bento-tile t-dressing" href="#work" data-filter-link="dressing" data-spot>
-            <picture><source srcset="assets/img/thumb/walnut-wardrobe-drawers.webp" type="image/webp"><img src="assets/img/thumb/walnut-wardrobe-drawers.jpg" alt="" width="600" height="800" loading="lazy"></picture>
-            <div class="bento-body">
-              <h3>Dressing rooms</h3>
-              <p>Walk-in wardrobes with drawer banks, corner shelving and full-height doors, laid out around how you dress.</p>
-            </div>
-            <span class="bento-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="bento-tile t-loft" href="#work" data-filter-link="loft" data-spot>
-            <picture><source srcset="assets/img/thumb/loft-eaves-storage.webp" type="image/webp"><img src="assets/img/thumb/loft-eaves-storage.jpg" alt="" width="600" height="800" loading="lazy"></picture>
-            <div class="bento-body">
-              <h3>Loft and eaves storage</h3>
-              <p>Shelving that follows the roofline, drawers under the windows and cupboards in the eaves.</p>
-            </div>
-            <span class="bento-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="bento-tile t-office" href="#work" data-filter-link="office" data-spot>
-            <picture><source srcset="assets/img/thumb/home-office.webp" type="image/webp"><img src="assets/img/thumb/home-office.jpg" alt="" width="600" height="800" loading="lazy"></picture>
-            <div class="bento-body">
-              <h3>Home offices</h3>
-              <p>A proper desk, drawers and shelving built into the room.</p>
-            </div>
-            <span class="bento-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="bento-tile t-kitchens" href="#work" data-filter-link="kitchens" data-spot>
-            <picture><source srcset="assets/img/thumb/kitchen-island.webp" type="image/webp"><img src="assets/img/thumb/kitchen-island.jpg" alt="" width="800" height="600" loading="lazy"></picture>
-            <div class="bento-body">
-              <h3>Kitchens</h3>
-              <p>Full kitchens and islands, plus larders, wine racks and appliance housings.</p>
-            </div>
-            <span class="bento-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
-          <a class="bento-tile t-media" href="#work" data-filter-link="media" data-spot>
-            <picture><source srcset="assets/img/thumb/loft-media-wall.webp" type="image/webp"><img src="assets/img/thumb/loft-media-wall.jpg" alt="" width="800" height="600" loading="lazy"></picture>
-            <div class="bento-body">
-              <h3>Media walls</h3>
-              <p>TV and media walls built in with shelving, drawers and storage, even under a sloping ceiling.</p>
-            </div>
-            <span class="bento-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </a>
+        <div class="svc-grid">
+          <a class="svc" href="#work" data-filter-link="wardrobes"><figure class="svc-img"><picture><source srcset="assets/img/thumb/wardrobe-grey-interior.webp" type="image/webp"><img src="assets/img/thumb/wardrobe-grey-interior.jpg" alt="" width="800" height="600" loading="lazy"></picture></figure><div class="svc-body"><h3>Fitted wardrobes and bedrooms</h3><p>Hinged or sliding, painted or wood-grain, with rails, shelves and drawers laid out the way you use them.</p></div><span class="svc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="svc" href="#work" data-filter-link="dressing"><figure class="svc-img"><picture><source srcset="assets/img/thumb/walk-in-wardrobe-grey.webp" type="image/webp"><img src="assets/img/thumb/walk-in-wardrobe-grey.jpg" alt="" width="600" height="800" loading="lazy"></picture></figure><div class="svc-body"><h3>Dressing rooms</h3><p>Walk-in wardrobes with drawer banks, corner shelving and full-height doors.</p></div><span class="svc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="svc" href="#work" data-filter-link="media"><figure class="svc-img"><picture><source srcset="assets/img/thumb/loft-media-wall.webp" type="image/webp"><img src="assets/img/thumb/loft-media-wall.jpg" alt="" width="800" height="600" loading="lazy"></picture></figure><div class="svc-body"><h3>Media walls</h3><p>TV and media walls built in with shelving, drawers and storage, even under a sloping ceiling.</p></div><span class="svc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="svc" href="#work" data-filter-link="loft"><figure class="svc-img"><picture><source srcset="assets/img/thumb/loft-eaves-storage.webp" type="image/webp"><img src="assets/img/thumb/loft-eaves-storage.jpg" alt="" width="600" height="800" loading="lazy"></picture></figure><div class="svc-body"><h3>Loft and eaves storage</h3><p>Shelving that follows the roofline, drawers under the windows and cupboards in the eaves.</p></div><span class="svc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="svc" href="#work" data-filter-link="office"><figure class="svc-img"><picture><source srcset="assets/img/thumb/home-office.webp" type="image/webp"><img src="assets/img/thumb/home-office.jpg" alt="" width="600" height="800" loading="lazy"></picture></figure><div class="svc-body"><h3>Home offices</h3><p>A proper desk, drawers and shelving built into the room, so it looks like it was always there.</p></div><span class="svc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="svc" href="#work" data-filter-link="kitchens"><figure class="svc-img"><picture><source srcset="assets/img/thumb/kitchen-island.webp" type="image/webp"><img src="assets/img/thumb/kitchen-island.jpg" alt="" width="800" height="600" loading="lazy"></picture></figure><div class="svc-body"><h3>Kitchens</h3><p>Full kitchens and islands, plus tall larders, wine racks and appliance housings.</p></div><span class="svc-go" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         </div>
       </div>
     </section>
 
-    <section class="work theme-beige" id="work" aria-labelledby="work-title">
+    <section class="work" id="work" aria-labelledby="work-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="work-title" class="section-title">Our work</h2>
+          <h2 id="work-title">Our work</h2>
           <p>Recent jobs by the Haynes team. Select any photo to see it full size.</p>
         </div>
-
         <div class="filters" role="group" aria-label="Filter projects" data-filters>
           <span class="filter-glider" aria-hidden="true" data-glider></span>
           <button type="button" aria-pressed="true" data-filter="all">All <span class="count"></span></button>
@@ -341,7 +302,6 @@
           <button type="button" aria-pressed="false" data-filter="kitchens">Kitchens <span class="count"></span></button>
         </div>
         <p class="sr-only" role="status" data-filter-status></p>
-
         <ul class="gallery" data-gallery>
           <li data-cat="wardrobes"><button type="button" class="tile" data-full="walnut-feature-wall"><picture><source srcset="assets/img/thumb/walnut-feature-wall.webp" type="image/webp"><img src="assets/img/thumb/walnut-feature-wall.jpg" alt="Wall of walnut handleless wardrobes under a crystal pendant light" width="800" height="600" loading="lazy"></picture><span class="tile-cap">Walnut wardrobe wall, handleless doors</span></button></li>
           <li data-cat="office"><button type="button" class="tile" data-full="home-office"><picture><source srcset="assets/img/thumb/home-office.webp" type="image/webp"><img src="assets/img/thumb/home-office.jpg" alt="Sage green home office with desk, drawer pedestals and shelving towers" width="600" height="800" loading="lazy"></picture><span class="tile-cap">Home office in sage green with panelled back wall</span></button></li>
@@ -367,7 +327,7 @@
           <li data-cat="dressing"><button type="button" class="tile" data-full="walnut-wardrobe-drawers"><picture><source srcset="assets/img/thumb/walnut-wardrobe-drawers.webp" type="image/webp"><img src="assets/img/thumb/walnut-wardrobe-drawers.jpg" alt="Walnut wardrobe with open internal drawers and stepped side shelves" width="600" height="800" loading="lazy"></picture><span class="tile-cap">Walnut wardrobe with internal drawers</span></button></li>
           <li data-cat="loft"><button type="button" class="tile" data-full="loft-storage-install"><picture><source srcset="assets/img/thumb/loft-storage-install.webp" type="image/webp"><img src="assets/img/thumb/loft-storage-install.jpg" alt="Loft storage part-way through installation, shelving built around the roof slope" width="800" height="704" loading="lazy"></picture><span class="tile-cap">Mid-install: loft storage around the roof slope</span></button></li>
         </ul>
-        <div class="gallery-more"><button type="button" class="btn btn-glass btn-lg" data-gallery-more hidden><span>Show all 23 photos</span></button></div>
+        <div class="gallery-more"><button type="button" class="btn btn-outline btn-lg" data-gallery-more hidden><span>Show all 23 photos</span></button></div>
       </div>
     </section>
 
@@ -382,50 +342,72 @@
       <p class="lb-count" data-lb-count aria-hidden="true"></p>
     </dialog>
 
-    <section class="process" id="process" aria-labelledby="process-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="process-title" class="section-title">How it works</h2>
-          <p>Four steps from first visit to finished room.</p>
-        </div>
-        <div class="steps-wrap">
-          <div class="steps-line" aria-hidden="true"><span data-steps-fill></span></div>
+    <section class="panel-section" id="process" aria-labelledby="process-title">
+      <div class="panel process-panel">
+        <div class="process-grid">
+          <div class="process-head">
+            <h2 id="process-title" class="process-words"><span>Visit.</span> <span>Design.</span> <span>Build.</span> <span>Fit.</span></h2>
+            <p>Four steps from first visit to finished room, with a clear price before anything is made.</p>
+            <a class="btn btn-gold btn-lg" href="#quote" data-magnetic><span>Book a home visit</span><span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
           <ol class="steps">
-            <li class="step"><span class="step-num" aria-hidden="true">1</span><h3>We visit and measure</h3><p>We come to you, look at the space and talk through what you need to store.</p></li>
-            <li class="step"><span class="step-num" aria-hidden="true">2</span><h3>We design and quote</h3><p>A layout drawn to your measurements, with finishes and a clear price up front.</p></li>
-            <li class="step"><span class="step-num" aria-hidden="true">3</span><h3>We build it</h3><p>Cabinets, doors and drawers cut to size for your room, in the finish you chose.</p></li>
-            <li class="step"><span class="step-num" aria-hidden="true">4</span><h3>We fit it and tidy up</h3><p>We install, trim everything to fit your walls and ceiling exactly, and leave the room clean.</p></li>
+            <li class="step"><span class="step-num">Step 1</span><h3>We visit and measure</h3><p>We come to you, look at the space and talk through what you need to store and how you use the room.</p><ul class="tags"><li>Home visit</li><li>Measured on site</li><li>No obligation</li></ul></li>
+            <li class="step"><span class="step-num">Step 2</span><h3>We design and quote</h3><p>A layout drawn to your measurements, with your choice of finishes and a clear price up front.</p><ul class="tags"><li>Drawn to your room</li><li>Finishes chosen</li><li>Clear price</li></ul></li>
+            <li class="step"><span class="step-num">Step 3</span><h3>We build it</h3><p>Cabinets, doors and drawers are cut and built to size for your room, in the finish you chose.</p><ul class="tags"><li>Made to measure</li><li>Your finish</li></ul></li>
+            <li class="step"><span class="step-num">Step 4</span><h3>We fit it and tidy up</h3><p>We install, trim everything to fit your walls and ceiling exactly, and leave the room clean.</p><ul class="tags"><li>Scribed to fit</li><li>Room left clean</li></ul></li>
           </ol>
         </div>
       </div>
     </section>
 
-    <section class="area" id="area" aria-labelledby="area-title">
-      <div class="wrap area-grid">
-        <div class="area-copy">
-          <h2 id="area-title" class="section-title">Nationwide coverage</h2>
-          <p>Wherever you are in the UK, we come to you: we visit to measure, build everything to suit your room, then come back to fit it.</p>
-          <p>Our office is in central London. Add your postcode to the quote form and we&rsquo;ll arrange a visit.</p>
-          <ul class="towns" aria-label="Regions we cover">
-            <li>London</li><li>South East</li><li>South West</li><li>East of England</li><li>East Midlands</li><li>West Midlands</li><li>North West</li><li>North East</li><li>Yorkshire</li><li>Wales</li><li>Scotland</li>
-          </ul>
+    <section class="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="why-title">What you can expect</h2>
+          <p>Straightforward from the first visit to the last screw.</p>
         </div>
-        <figure class="radar">
-          <div class="map-frame" data-map-frame>
-            <div class="coverage-map" id="coverage-map" data-coverage-map tabindex="0" role="region" aria-label="Map of the UK: Haynes covers homes nationwide from its London office"></div>
-            <div class="radar-fallback"><p class="map-fallback">Covering homes nationwide<br><span>Office: Great Portland Street, London</span></p></div>
-          </div>
-          <figcaption class="map-key"><span><i class="k-dot" aria-hidden="true"></i>Our London office</span><span><i class="k-ring" aria-hidden="true"></i>We fit homes across the UK</span></figcaption>
-        </figure>
+        <div class="why-grid">
+          <article class="why-card why-feature">
+            <picture><source srcset="assets/img/thumb/loft-dressing-bench.webp" type="image/webp"><img src="assets/img/thumb/loft-dressing-bench.jpg" alt="" width="600" height="800" loading="lazy"></picture>
+            <div class="why-feature-body">
+              <h3>Awkward spaces, made useful</h3>
+              <p>Lofts, eaves, alcoves and chimney breasts get furniture that follows the shape of the room, so no space is wasted.</p>
+            </div>
+          </article>
+          <article class="why-card"><span class="why-ic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><h3>A free home visit</h3><p>We come to you, measure up and talk through what you need to store. No charge and no obligation.</p></article>
+          <article class="why-card"><span class="why-ic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 4h16v16H4z M4 9h16 M9 9v11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><h3>Designed to your room</h3><p>A layout drawn to your measurements, with the inside planned around what you own.</p></article>
+          <article class="why-card"><span class="why-ic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 3v18 M8 7h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><h3>A clear price first</h3><p>You get the design and the price before anything is made.</p></article>
+          <article class="why-card"><span class="why-ic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5v17 M3.5 12h17" stroke="currentColor" stroke-width="1.4"/></svg></span><h3>Your choice of finish</h3><p>Painted colours, wood-grain finishes like walnut, and gloss for kitchens.</p></article>
+          <article class="why-card"><span class="why-ic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 20h16 M6 20V9l6-5 6 5v11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><h3>Fitted, not flat-pack</h3><p>Full height with no gaps or dust tops, scribed to your walls and built around slopes and chimney breasts.</p></article>
+          <article class="why-card"><span class="why-ic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Left clean and tidy</h3><p>We install everything, check every door and drawer, and leave the room clean.</p></article>
+        </div>
       </div>
     </section>
 
-    <section class="faq theme-beige" id="faq" aria-labelledby="faq-title">
+    <section class="panel-section" id="area" aria-labelledby="area-title">
+      <div class="panel area-panel">
+        <div class="area-head">
+          <h2 id="area-title">Up to 200 miles from our Bedford base.</h2>
+          <p>From London to Manchester and Birmingham to Bristol, we come to you to measure up, then come back to fit. Add your postcode to the quote form and we&rsquo;ll arrange a visit.</p>
+        </div>
+        <figure class="map-wrap">
+          <div class="map-frame" data-map-frame>
+            <div class="coverage-map" id="coverage-map" data-coverage-map tabindex="0" role="region" aria-label="Map showing the area within about 200 miles of Bedford that Haynes covers, including London, Birmingham and Manchester"></div>
+            <div class="map-fallback"><p>Up to 200 miles from Bedford<br><span>London, Birmingham, Manchester, Leeds, Bristol, Cardiff and between</span></p></div>
+          </div>
+          <figcaption class="map-key"><span><i class="k-home" aria-hidden="true"></i>Bedford base</span><span><i class="k-ring" aria-hidden="true"></i>Roughly 150 and 200 miles</span></figcaption>
+        </figure>
+        <ul class="towns" aria-label="Places we cover">
+          <li>London</li><li>Birmingham</li><li>Manchester</li><li>Leeds</li><li>Liverpool</li><li>Sheffield</li><li>Nottingham</li><li>Leicester</li><li>Bristol</li><li>Cardiff</li><li>Oxford</li><li>Cambridge</li><li>Milton Keynes</li><li>Northampton</li><li>Southampton</li><li>Brighton</li><li>Norwich</li><li>Bedford</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
       <div class="wrap faq-grid">
         <div class="faq-head">
-          <h2 id="faq-title" class="section-title">Questions we get asked</h2>
-          <p>Something else on your mind? Call or message us, or ask in the quote form.</p>
-          <a class="btn btn-glass btn-lg" href="#quote" data-magnetic><span>Ask us a question</span></a>
+          <h2 id="faq-title">Common questions</h2>
+          <p>Can&rsquo;t see yours? <a href="#quote">Ask us in the quote form</a> or message us on WhatsApp.</p>
         </div>
         <div class="faq-list" data-faq>
           <div class="faq-item">
@@ -442,7 +424,7 @@
           </div>
           <div class="faq-item">
             <h3><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4"><span>Which areas do you cover?</span><span class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></h3>
-            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>We cover the whole of the UK from our London office. Add your postcode to the quote form and we&rsquo;ll arrange a visit to measure up.</p></div></div>
+            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-inner"><p>We work up to around 200 miles from our base in Bedford, which takes in London, Birmingham, Manchester, Leeds, Bristol, Cardiff and everywhere in between. Add your postcode to the quote form and we&rsquo;ll arrange a visit.</p></div></div>
           </div>
           <div class="faq-item">
             <h3><button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5"><span>Do you fit the furniture as well as make it?</span><span class="faq-icon"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></h3>
@@ -460,21 +442,20 @@
       </div>
     </section>
 
-    <section class="quote" id="quote" aria-labelledby="quote-title">
-      <div class="wrap quote-grid">
-        <div class="quote-copy">
-          <h2 id="quote-title" class="section-title">Get a free quote</h2>
-          <p>Tell us about the room and what you&rsquo;d like built. Photos help but aren&rsquo;t essential. We&rsquo;ll get back to you to book a visit.</p>
-          <ul class="contact-list">
-            <li><a class="contact-chip" href="tel:08003029909"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span><small>Freephone</small>0800 302 9909</span></a></li>
-            <li><a class="contact-chip" href="https://wa.me/447379236186" target="_blank" rel="noopener"><span class="ci ci-wa" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5a6.4 6.4 0 0 0 2.9 2.6c.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .5-.3 1.4-1.3 1.7-.8.3-2 .2-4-.9a9 9 0 0 1-3.5-3.7c-.6-1.2-.6-2.3-.1-3.4z" fill="currentColor"/></svg></span><span><small>WhatsApp us photos of your room</small>0737 923 6186</span></a></li>
-            <li><a class="contact-chip" href="mailto:info@hayneshomeimprovements.com"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span><small>General enquiries</small><span class="chip-email">info@<wbr>hayneshomeimprovements.com</span></span></a></li>
-            <li><a class="contact-chip" href="mailto:sales@hayneshomeimprovements.com"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span><small>Sales and quotes</small><span class="chip-email">sales@<wbr>hayneshomeimprovements.com</span></span></a></li>
-            <li><div class="contact-chip"><span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span><span><small>Office</small><span class="chip-email">5th Floor, 167&ndash;169 Great Portland Street, London W1W 5PF</span></span></div></li>
-          </ul>
-        </div>
-
-        <form class="quote-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="company" novalidate data-form data-spot>
+    <section class="panel-section" id="quote" aria-labelledby="quote-title">
+      <div class="panel quote-panel">
+        <div class="quote-grid">
+          <div class="quote-copy">
+            <h2 id="quote-title">Let&rsquo;s build it.</h2>
+            <p>Tell us about the room and what you&rsquo;d like built. Photos help but aren&rsquo;t essential. We&rsquo;ll get back to you to book a visit.</p>
+            <ul class="contact-list">
+              <li><a href="tel:08003029909"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span><small>Freephone</small>0800 302 9909</span></a></li>
+              <li><a href="https://wa.me/447379236186" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5a6.4 6.4 0 0 0 2.9 2.6c.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .5-.3 1.4-1.3 1.7-.8.3-2 .2-4-.9a9 9 0 0 1-3.5-3.7c-.6-1.2-.6-2.3-.1-3.4z" fill="currentColor"/></svg><span><small>WhatsApp us photos of your room</small>0737 923 6186</span></a></li>
+              <li><a href="mailto:info@hayneshomeimprovements.com"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span><small>General enquiries</small>info@<wbr>hayneshomeimprovements.com</span></a></li>
+              <li><a href="mailto:sales@hayneshomeimprovements.com"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span><small>Sales and quotes</small>sales@<wbr>hayneshomeimprovements.com</span></a></li>
+            </ul>
+          </div>
+          <form class="quote-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="company" novalidate data-form data-spot>
           <span class="beam beam-slow" aria-hidden="true"></span>
           <input type="hidden" name="form-name" value="quote">
           <p class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
@@ -517,57 +498,58 @@
             <label for="f-msg">Tell us about the room <span class="optional">(optional)</span></label>
             <textarea id="f-msg" name="message" rows="4" placeholder="Rough size, sloping ceilings, finish you like, when you&rsquo;re hoping to start"></textarea>
           </div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit" data-submit>
+          <button class="btn btn-gold btn-lg btn-block" type="submit" data-submit>
             <span data-submit-label>Send my quote request</span>
             <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <p class="form-status" data-form-status role="status"></p>
           <p class="form-privacy">We only use your details to reply to your enquiry. <a href="privacy.html">Privacy notice</a></p>
         </form>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <div class="footer-cta">
-        <p class="footer-big">Ready when your room is.</p>
-        <a class="btn btn-glass btn-lg footer-call" href="tel:08003029909" data-magnetic><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Call free on 0800 302 9909</span></a>
-      </div>
-      <div class="footer-inner">
-        <img class="footer-logo" src="assets/logo-cream.png" alt="Haynes Home Improvements, bespoke design and build" width="160" height="158" loading="lazy">
+      <div class="footer-top">
         <div class="footer-about">
-          <p><strong>Haynes Home Improvements Ltd</strong><br>Bespoke design and build: fitted wardrobes, bedrooms, kitchens, media walls, home offices and loft storage, designed, made to measure and fitted.</p>
-          <address class="footer-contact">
-            <a href="tel:08003029909">Freephone 0800 302 9909</a>
-            <a href="https://wa.me/447379236186" target="_blank" rel="noopener">WhatsApp 0737 923 6186</a>
-            <a href="mailto:info@hayneshomeimprovements.com">info@hayneshomeimprovements.com</a>
-            <a href="mailto:sales@hayneshomeimprovements.com">sales@hayneshomeimprovements.com</a>
-            <span>5th Floor, 167&ndash;169 Great Portland Street, London W1W 5PF</span>
-          </address>
+          <img src="assets/logo-green.png" alt="Haynes Home Improvements, bespoke design and build" width="120" height="118" loading="lazy">
+          <p><strong>Haynes Home Improvements Ltd</strong><br>Bespoke design and build: fitted wardrobes, bedrooms, kitchens, media walls, home offices and loft storage, up to 200 miles from Bedford.</p>
           <div class="socials">
             <a href="https://www.facebook.com/hayneshomeimprovements/" target="_blank" rel="noopener" aria-label="Haynes Home Improvements on Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M14 8.5V7c0-.8.4-1.2 1.2-1.2H17V2.5h-2.6C11.6 2.5 10.6 4.2 10.6 7v1.5H8.5V12h2.1v9.5H14V12h2.6l.4-3.5z" fill="currentColor"/></svg></a>
             <a href="https://www.instagram.com/hayneshomeimprovements/" target="_blank" rel="noopener" aria-label="Haynes Home Improvements on Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></a>
           </div>
         </div>
-        <nav aria-label="Footer">
+        <nav class="footer-nav" aria-label="Footer">
+          <p class="footer-label">Explore</p>
           <a href="#services">What we build</a>
           <a href="#work">Our work</a>
           <a href="#process">How it works</a>
-          <a href="#area">Coverage</a>
-          <a href="#faq">FAQs</a>
+          <a href="#area">Where we work</a>
+          <a href="#faq">Questions</a>
           <a href="#quote">Get a free quote</a>
-          <a href="privacy.html">Privacy notice</a>
         </nav>
+        <address class="footer-contact">
+          <p class="footer-label">Contact</p>
+          <a href="tel:08003029909">Freephone 0800 302 9909</a>
+          <a href="https://wa.me/447379236186" target="_blank" rel="noopener">WhatsApp 0737 923 6186</a>
+          <a href="mailto:info@hayneshomeimprovements.com">info@hayneshomeimprovements.com</a>
+          <a href="mailto:sales@hayneshomeimprovements.com">sales@hayneshomeimprovements.com</a>
+          <span>Office: 5th Floor, 167&ndash;169 Great Portland Street, London W1W 5PF</span>
+        </address>
       </div>
-      <p class="legal">&copy; <span data-year>2026</span> Haynes Home Improvements Ltd</p>
+      <p class="footer-wordmark" aria-hidden="true">HAYNES</p>
+      <div class="footer-legal">
+        <p>&copy; <span data-year>2026</span> Haynes Home Improvements Ltd</p>
+        <p><a href="privacy.html">Privacy notice</a></p>
+      </div>
     </div>
   </footer>
 
-  <!-- Sticky action bar (phones only) -->
   <nav class="action-bar" aria-label="Quick contact" data-action-bar>
-    <a href="tel:08003029909" class="ab-btn"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Call</span></a>
-    <a href="https://wa.me/447379236186" class="ab-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5a6.4 6.4 0 0 0 2.9 2.6c.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .5-.3 1.4-1.3 1.7-.8.3-2 .2-4-.9a9 9 0 0 1-3.5-3.7c-.6-1.2-.6-2.3-.1-3.4z" fill="currentColor"/></svg><span>WhatsApp</span></a>
+    <a href="tel:08003029909" class="ab-btn"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Call</span></a>
+    <a href="https://wa.me/447379236186" class="ab-btn" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .5a6.4 6.4 0 0 0 2.9 2.6c.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .5-.3 1.4-1.3 1.7-.8.3-2 .2-4-.9a9 9 0 0 1-3.5-3.7c-.6-1.2-.6-2.3-.1-3.4z" fill="currentColor"/></svg><span>WhatsApp</span></a>
     <a href="#quote" class="ab-btn ab-primary"><span>Free quote</span></a>
   </nav>
 

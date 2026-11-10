@@ -319,34 +319,24 @@
   });
   const buildMap = () => {
     const L = window.L;
-    const office = [51.5205, -0.1437];            // 167-169 Great Portland Street, London
-    const map = L.map(mapEl, {
-      zoomControl: true, scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false,
-      attributionControl: true, zoomSnap: 0.25,
-    });
-    const uk = L.latLngBounds([49.9, -6.4], [58.7, 1.8]);
-    const fit = () => map.fitBounds(uk, { padding: [8, 8] });
+    const base = [52.136, -0.467];                // Bedford
+    const map = L.map(mapEl, { zoomControl: true, scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, attributionControl: true, zoomSnap: 0.25 });
+    const area = L.latLng(base).toBounds(2 * 330000);
+    const fit = () => map.fitBounds(area, { padding: [6, 6] });
     fit();
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 12, minZoom: 4,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 12, minZoom: 5,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
     map.attributionControl.setPrefix(false);
-    // Main cities, linked back to the office: "we come to you", wherever you are.
-    const cities = [
-      [52.486, -1.890], [53.481, -2.242], [53.801, -1.549], [53.408, -2.991], [51.455, -2.588],
-      [51.481, -3.179], [54.978, -1.618], [53.381, -1.470], [52.954, -1.158], [50.909, -1.404],
-      [52.630, 1.297], [55.864, -4.252], [55.953, -3.188], [50.718, -3.533], [52.205, 0.122],
-      [51.752, -1.258], [50.822, -0.137], [54.597, -5.930],
-    ];
-    cities.forEach((c) => {
-      L.polyline([office, c], { color: '#3f5247', weight: 1.8, opacity: 0.7, dashArray: '5 6', interactive: false }).addTo(map);
-      L.circleMarker(c, { radius: 4.5, color: '#3f5247', weight: 2, fillColor: '#efe4cf', fillOpacity: 1, interactive: false }).addTo(map);
+    L.circle(base, { radius: 321869, color: '#b8912f', weight: 2, dashArray: '8 8', fillColor: '#d8b55a', fillOpacity: 0.08, interactive: false }).addTo(map);
+    L.circle(base, { radius: 241402, color: '#b8912f', weight: 1.5, opacity: 0.7, dashArray: '4 8', fill: false, interactive: false }).addTo(map);
+    const cities = [['London', 51.507, -0.128], ['Birmingham', 52.486, -1.89], ['Manchester', 53.481, -2.242], ['Leeds', 53.801, -1.549],
+      ['Bristol', 51.455, -2.588], ['Cardiff', 51.481, -3.179], ['Liverpool', 53.408, -2.991], ['Sheffield', 53.381, -1.47],
+      ['Nottingham', 52.954, -1.158], ['Southampton', 50.909, -1.404], ['Norwich', 52.63, 1.297], ['Brighton', 50.822, -0.137]];
+    cities.forEach(([n, lat, lng], i) => {
+      const m = L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<div class="map-pin"></div>', iconSize: [14, 14], iconAnchor: [7, 7] }), keyboard: false, interactive: false }).addTo(map);
+      if (i < (innerWidth < 700 ? 3 : 4)) m.bindTooltip(n, { permanent: true, direction: 'top', offset: [0, -8], className: 'map-label' });
     });
-    L.marker(office, {
-      icon: L.divIcon({ className: '', html: '<div class="map-home"><b></b><b></b><i></i><span>London office</span></div>', iconSize: [22, 22], iconAnchor: [11, 11] }),
-      keyboard: false, interactive: false,
-    }).addTo(map);
+    L.marker(base, { icon: L.divIcon({ className: '', html: '<div class="map-home"><b></b><b></b><i></i><span>Bedford</span></div>', iconSize: [22, 22], iconAnchor: [11, 11] }), keyboard: false, interactive: false }).addTo(map);
     $('[data-map-frame]').classList.add('is-live');
     window.addEventListener('resize', fit);
   };
@@ -360,6 +350,42 @@
       ]).then(buildMap).catch((err) => { console.warn('Map unavailable, showing the drawn map instead.', err); });
     }, { rootMargin: '1500px 0px' });
     io.observe(mapEl);
+  }
+
+  /* ---------- Statement: words light up as the paragraph scrolls through the screen ---------- */
+  const stmt = $('[data-words]');
+  if (stmt) {
+    const text = stmt.textContent.trim();
+    stmt.setAttribute('aria-label', text);
+    stmt.innerHTML = stmt.innerHTML.trim().split(/\s+/).map((w) => `<span class="sw" aria-hidden="true">${w}</span>`).join(' ');
+    const words = $$('.sw', stmt);
+    if (reduce) words.forEach((w) => w.classList.add('on'));
+    else {
+      const paint = () => {
+        const r = stmt.getBoundingClientRect();
+        const start = innerHeight * 0.85, end = innerHeight * 0.35;
+        const p = Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height * 0.5)));
+        const n = Math.round(p * words.length);
+        words.forEach((w, i) => w.classList.toggle('on', i < n));
+      };
+      paint();
+      window.addEventListener('scroll', paint, { passive: true });
+      window.addEventListener('resize', paint);
+    }
+  }
+
+  /* ---------- How it works: highlight the step in the middle of the screen ---------- */
+  const steps = $$('.step');
+  const stepWords = $$('.process-words span');
+  if (steps.length && 'IntersectionObserver' in window) {
+    const setStep = (i) => {
+      steps.forEach((st, k) => st.classList.toggle('on', k === i));
+      stepWords.forEach((w, k) => w.classList.toggle('on', k <= i));
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setStep(steps.indexOf(e.target)); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach((st) => io.observe(st));
   }
 
   const y = $('[data-year]');
@@ -378,32 +404,15 @@
     .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.1 }, 0.55);
 
   // Facts strip rises in as it scrolls into view.
-  gsap.from('.facts-list li', {
+  gsap.from('.svc, .why-card', {
     y: 24, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
-    scrollTrigger: { trigger: '.facts', start: 'top 85%', once: true },
+    scrollTrigger: { trigger: '.svc-grid', start: 'top 85%', once: true }, clearProps: 'transform,opacity',
   });
 
   // Hero image drifts slower than the page.
   gsap.to('[data-hero-media] img, [data-hero-media] video', {
     yPercent: -10, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
-  });
-
-  // Bento tiles assemble as they enter.
-  gsap.from('.bento-tile', {
-    y: 60, opacity: 0, scale: 0.96, duration: 1.1, ease: 'expo.out', stagger: 0.08, clearProps: 'transform,opacity',
-    scrollTrigger: { trigger: '.bento', start: 'top 80%', once: true },
-  });
-
-  // Process: the gold line draws as you scroll through the steps.
-  const vertical = matchMedia('(max-width: 900px)').matches;
-  gsap.fromTo('[data-steps-fill]', { [vertical ? 'scaleY' : 'scaleX']: 0 }, {
-    [vertical ? 'scaleY' : 'scaleX']: 1, ease: 'none',
-    scrollTrigger: { trigger: '.steps-wrap', start: 'top 75%', end: 'bottom 55%', scrub: 0.6 },
-  });
-  gsap.from('.step', {
-    y: 30, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.12,
-    scrollTrigger: { trigger: '.steps-wrap', start: 'top 80%', once: true },
   });
 
   // Map frame rises into place.
