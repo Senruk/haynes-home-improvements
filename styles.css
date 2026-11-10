@@ -510,74 +510,53 @@ main:focus { outline: none; }
 @media (max-width: 1000px) { .why-grid { grid-auto-rows: auto; } }
 
 /* =====================================================================
-   GREEN THEME: the page itself is sage green (no white backgrounds).
-   Base = lighter sage; panels and cards = deeper greens; text = cream; gold accents.
+   LIGHT GREEN THEME: a light sage page, deeper sage panels, dark green text, gold buttons.
    ===================================================================== */
 :root {
-  --paper: oklch(0.5 0.034 158);              /* page background */
-  --paper-2: oklch(0.45 0.032 158);           /* chips, filter bar */
-  --card: oklch(0.43 0.031 158);              /* cards and the form */
-  --sage: oklch(0.405 0.03 159);              /* rounded panels */
-  --sage-deep: oklch(0.33 0.028 160);
-  --sage-soft: oklch(0.56 0.034 158);         /* footer wordmark */
-  --ink: oklch(0.985 0.008 95);
-  --ink-2: oklch(0.92 0.022 105);
-  --line: oklch(1 0 0 / 0.14);
-  --line-2: oklch(1 0 0 / 0.26);
-  --gold-ink: oklch(0.86 0.11 86);            /* gold text and icons on green */
-  --gold-soft: oklch(0.8 0.115 83 / 0.16);
-  --error: oklch(0.86 0.1 35);
-  --ok: oklch(0.9 0.11 140);
-  --shadow: 0 1px 2px oklch(0.2 0.03 160 / .2), 0 14px 34px -16px oklch(0.2 0.03 160 / .55);
+  --paper: oklch(0.885 0.032 150);            /* page background: light green */
+  --paper-2: oklch(0.845 0.038 150);          /* filter bar, quiet fills */
+  --card: oklch(0.925 0.024 145);             /* cards, form */
+  --sage: oklch(0.45 0.034 158);              /* rounded panels */
+  --sage-deep: oklch(0.34 0.03 160);
+  --sage-soft: oklch(0.8 0.045 150);          /* footer wordmark */
+  --ink: oklch(0.24 0.03 160);
+  --ink-2: oklch(0.36 0.03 160);
+  --line: oklch(0.3 0.04 160 / 0.14);
+  --line-2: oklch(0.3 0.04 160 / 0.26);
+  --gold-ink: oklch(0.44 0.09 70);            /* gold text and icons on light green */
+  --gold-soft: oklch(0.8 0.115 83 / 0.3);
+  --error: oklch(0.48 0.17 28);
+  --ok: oklch(0.42 0.1 150);
 }
 body { background: var(--paper); color: var(--ink); }
-.site-header { background: oklch(0.5 0.034 158 / .86); }
-.site-header.is-solid { border-bottom-color: var(--line); }
-.brand { color: var(--ink); }
-.brand-sub { color: var(--ink-2); }
-.burger i { background: var(--ink); }
-.site-nav a:not(.btn) { color: var(--ink-2); }
-.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); background: oklch(1 0 0 / .1); }
-@media (max-width: 860px) { .site-nav { background: var(--sage); } }
-.statement-text .sw { color: oklch(0.985 0.008 95 / .3); }
+.site-header { background: oklch(0.885 0.032 150 / .86); }
+.brand { color: var(--sage-deep); }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); background: oklch(0.3 0.04 160 / .08); }
+@media (max-width: 860px) { .site-nav { background: var(--card); } }
+.statement-text .sw { color: oklch(0.24 0.03 160 / .25); }
 .statement-text .sw.on { color: var(--ink); }
-.ticker span { color: var(--ink-2); }
-.svc { background: var(--card); }
-.svc-go { background: oklch(1 0 0 / .1); color: var(--ink); }
-.why-card { background: var(--card); }
-.why-ic { color: var(--gold-ink); background: var(--gold-soft); }
-.tile-cap { color: var(--ink); background: oklch(0.33 0.028 160 / .88); }
-.filter-glider { background: oklch(1 0 0 / .14); box-shadow: inset 0 0 0 1px var(--line-2); }
-.filters button[aria-pressed="true"], .filters button:hover { color: var(--ink); }
-.filters .count { color: var(--gold-ink); }
-.btn-outline { color: var(--ink); background: transparent; box-shadow: inset 0 0 0 1.5px var(--line-2); }
-.btn-outline:hover { box-shadow: inset 0 0 0 1.5px var(--gold); }
-.quote-form { background: var(--card); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line), 0 30px 60px -30px oklch(0.15 0.03 160 / .7); }
+.svc-go { background: var(--paper-2); color: var(--ink); }
+.tile-cap { color: var(--ink); background: oklch(0.925 0.024 145 / .92); }
+.filter-glider { background: var(--card); box-shadow: 0 2px 8px -2px oklch(0.3 0.04 160 / .25), inset 0 0 0 1px var(--line); }
+.quote-form { background: var(--card); color: var(--ink); }
 .panel .quote-form p, .panel .quote-form .form-privacy { color: var(--ink-2); }
 .form-privacy a { color: var(--ink); }
-.chips span { color: var(--ink-2); background: oklch(1 0 0 / .06); box-shadow: inset 0 0 0 1px var(--line-2); }
-.chips label:hover span { color: var(--ink); }
-.field input, .field textarea { color: var(--ink); background: oklch(0.36 0.028 160); box-shadow: inset 0 0 0 1px oklch(1 0 0 / .32); }
-.field input:focus, .field textarea:focus { box-shadow: inset 0 0 0 1.5px var(--gold), 0 0 0 4px oklch(0.8 0.115 83 / .25); }
-.field ::placeholder { color: oklch(0.85 0.02 120); }
-.faq-icon { color: var(--ink); }
-.faq-head a { color: var(--ink); text-decoration-color: var(--gold); }
-.footer-label { color: var(--gold-ink); }
-.footer-nav a:hover, .footer-contact a:hover { color: var(--ink); text-decoration-color: var(--gold); }
-.socials a { color: var(--ink); }
+.chips span { color: var(--ink-2); background: var(--paper); box-shadow: inset 0 0 0 1px var(--line-2); }
+.field input, .field textarea { color: var(--ink); background: oklch(0.96 0.015 140); box-shadow: inset 0 0 0 1px oklch(0.3 0.04 160 / .32); }
+.field input:focus, .field textarea:focus { box-shadow: inset 0 0 0 1.5px var(--gold-ink), 0 0 0 4px oklch(0.8 0.115 83 / .3); }
+.field ::placeholder { color: oklch(0.45 0.03 155); }
+.faq-head a { text-decoration-color: var(--gold-ink); }
 .footer-wordmark { color: var(--sage-soft); }
-.coverage-map .leaflet-control-attribution { background: oklch(0.33 0.028 160 / .85); color: var(--ink-2); }
-.coverage-map .leaflet-control-attribution a { color: var(--ink); }
-.coverage-map .leaflet-bar a { background: var(--sage-deep); color: var(--ink); border-bottom-color: var(--line); }
-.map-label { background: var(--sage-deep) !important; color: var(--ink) !important; }
-.map-pin { background: var(--ink); }
 .lightbox { background: oklch(0.25 0.025 160 / .96); }
+.map-label { background: var(--card) !important; color: var(--ink) !important; }
+.map-pin { background: var(--card); }
 @media (max-width: 760px) {
-  .action-bar { background: oklch(0.36 0.028 160 / .94); box-shadow: inset 0 0 0 1px var(--line-2), 0 18px 40px -14px oklch(0.15 0.03 160 / .7); }
-  .ab-btn { color: var(--ink); background: oklch(1 0 0 / .1); }
-  .ab-primary { background: var(--grad-gold); color: var(--on-gold); }
+  .action-bar { background: oklch(0.925 0.024 145 / .94); box-shadow: inset 0 0 0 1px var(--line-2), 0 18px 40px -14px oklch(0.2 0.03 160 / .5); }
+  .ab-btn { color: var(--ink); background: var(--paper-2); }
 }
-:focus-visible { outline-color: var(--gold); }
+:focus-visible { outline-color: var(--gold-ink); }
+/* inside the deeper green panels, focus rings and outline buttons stay light */
+.panel :focus-visible { outline-color: var(--gold); }
 
 /* ---------- Homepage: work preview ---------- */
 .work-preview { padding-bottom: var(--section); }
