@@ -998,3 +998,14 @@ h2 { font-weight: 560; letter-spacing: -0.04em; }
   .ticker { margin-top: var(--inset); }
   .services { padding-top: 3.5rem; }
 }
+/* Hero: let the video show through more; keep a darker band only where the text sits */
+.hero-shade {
+  background:
+    linear-gradient(to top, oklch(0.24 0.03 160 / .82) 0%, oklch(0.28 0.03 160 / .25) 30%, transparent 52%),
+    linear-gradient(90deg, oklch(0.24 0.03 160 / .62) 0%, oklch(0.28 0.03 160 / .22) 40%, transparent 65%);
+}
+.hero-title { text-shadow: 0 2px 22px oklch(0.2 0.03 160 / .55); }
+.hero-lede { text-shadow: 0 1px 12px oklch(0.2 0.03 160 / .7); }
+@media (max-width: 760px) {
+  .hero-shade { background: linear-gradient(to top, oklch(0.22 0.03 160 / .88) 0%, oklch(0.24 0.03 160 / .55) 30%, oklch(0.28 0.03 160 / .1) 55%, transparent 70%); }
+}
