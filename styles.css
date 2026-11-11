@@ -992,3 +992,9 @@ h2 { font-weight: 560; letter-spacing: -0.04em; }
   .rv-list { padding-bottom: 2.5rem; margin-bottom: -1.5rem; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
   .rv-list:hover, .rv-list:focus-within { -webkit-mask-image: none; mask-image: none; }
 }
+/* Breathing room: hero, gold strip, then services */
+.services { padding-top: var(--section); }
+@media (max-width: 760px) {
+  .ticker { margin-top: var(--inset); }
+  .services { padding-top: 3.5rem; }
+}
