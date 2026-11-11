@@ -698,3 +698,15 @@ body { background: var(--paper); color: var(--ink); }
 :focus-visible { outline-color: var(--gold-ink); }
 .panel :focus-visible, .hero :focus-visible { outline-color: var(--gold); }
 @media (max-width: 760px) { .ab-btn.ab-primary { background: var(--grad-gold); color: var(--on-gold); } }
+
+/* DARKER CREAM */
+:root {
+  --paper: oklch(0.915 0.034 87);             /* page background: darker cream */
+  --paper-2: oklch(0.875 0.038 86);
+  --card: oklch(0.955 0.022 90);              /* cards and form stay a touch lighter */
+  --sage-soft: oklch(0.85 0.045 88);
+}
+.site-header { background: oklch(0.915 0.034 87 / .9); }
+.tile-cap { background: oklch(0.955 0.022 90 / .93); }
+.field input, .field textarea { background: oklch(0.985 0.01 92); }
+@media (max-width: 760px) { .action-bar { background: oklch(0.955 0.022 90 / .95); } }
