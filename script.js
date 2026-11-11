@@ -327,14 +327,16 @@
     const L = window.L;
     const base = [52.136, -0.467];                // Bedford
     const map = L.map(mapEl, { zoomControl: true, scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, attributionControl: true, zoomSnap: 0.25 });
-    const area = L.latLng(base).toBounds(2 * 330000);
+    const area = L.latLngBounds([50.15, -5.3], [55.05, 1.85]);   // England and Wales within ~200 miles
     const fit = () => map.fitBounds(area, { padding: [6, 6] });
     fit();
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 12, minZoom: 5,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
     map.attributionControl.setPrefix(false);
-    L.circle(base, { radius: 321869, color: '#b8912f', weight: 2, dashArray: '8 8', fillColor: '#d8b55a', fillOpacity: 0.08, interactive: false }).addTo(map);
-    L.circle(base, { radius: 241402, color: '#b8912f', weight: 1.5, opacity: 0.7, dashArray: '4 8', fill: false, interactive: false }).addTo(map);
+    // Coverage: Great Britain's land within about 200 miles of Bedford (no sea, no overseas)
+    fetch('assets/coverage.json').then((r) => r.json()).then((rings) => {
+      L.polygon(rings, { color: '#a07d24', weight: 1.5, opacity: 0.9, dashArray: '6 6', fillColor: '#d8b55a', fillOpacity: 0.28, interactive: false }).addTo(map);
+    }).catch(() => {});
     const cities = [['London', 51.507, -0.128], ['Birmingham', 52.486, -1.89], ['Manchester', 53.481, -2.242], ['Leeds', 53.801, -1.549],
       ['Bristol', 51.455, -2.588], ['Cardiff', 51.481, -3.179], ['Liverpool', 53.408, -2.991], ['Sheffield', 53.381, -1.47],
       ['Nottingham', 52.954, -1.158], ['Southampton', 50.909, -1.404], ['Norwich', 52.63, 1.297], ['Brighton', 50.822, -0.137]];
