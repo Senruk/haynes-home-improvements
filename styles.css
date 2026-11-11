@@ -929,3 +929,35 @@ h2 { font-weight: 560; letter-spacing: -0.04em; }
   body:has(.site-footer) { padding-bottom: 0; }
   .site-footer { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 }
+/* Phones: drop costly glass blur and the fixed background (smoother scrolling, faster load) */
+@media (max-width: 760px) {
+  body { background-attachment: scroll; }
+  .site-header, .hero-badge, .btn-ghost, .action-bar, .tile-cap { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .site-header { background: oklch(0.915 0.034 87 / .97); }
+  .hero-badge { background: oklch(0.25 0.03 160 / .55); }
+  .btn-ghost { background: oklch(0.25 0.03 160 / .35); }
+  .action-bar { background: oklch(0.955 0.022 90 / .98); }
+  .hero-media img, .hero-media video { height: 100%; }
+}
+
+/* Phones: the hero shows more video (no bar inside it, text sits low, shorter text) */
+@media (max-width: 760px) {
+  .hero-content { padding-top: 3rem; padding-bottom: 1.75rem; }
+  .hero-lede { display: none; }
+  .hero-badge { margin-bottom: 1rem; }
+  .hero-actions { margin-top: 1.4rem; gap: .6rem; }
+}
+/* Services now end with the "See all our work" button */
+.services .wp-more { margin-top: 2rem; }
+/* Phones: lighter shadows and flatter panel fills (big soft shadows are slow to paint on phones) */
+@media (max-width: 760px) {
+  .panel, .hero-panel, .why-feature, .map-frame { box-shadow: inset 0 0 0 1px var(--gold-line); }
+  .panel { background: linear-gradient(160deg, oklch(0.42 0.036 160), oklch(0.34 0.032 162)); }
+  .svc, .why-card:not(.why-feature), .wp-tile, .tile, .filters { box-shadow: inset 0 0 0 1px var(--gold-line-soft); }
+  .quote-form { box-shadow: inset 0 0 0 1px var(--gold-line-soft); }
+  .btn-gold, .btn-gold:hover { box-shadow: inset 0 1px 0 oklch(1 0 0 / .6), 0 0 0 1px oklch(0.62 0.11 74 / .55); }
+  .site-header.is-solid { box-shadow: none; }
+  .hero-title, .hero-lede { text-shadow: 0 1px 10px oklch(0.25 0.03 160 / .5); }
+  body { background: var(--paper); }
+  .site-footer { background: linear-gradient(170deg, oklch(0.34 0.032 160), oklch(0.26 0.028 162)); }
+}

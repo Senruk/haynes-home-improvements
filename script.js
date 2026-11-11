@@ -300,14 +300,17 @@
     });
   });
 
-  /* ---------- Sticky action bar: always there on phones, except at the quote form and footer ---------- */
+  /* ---------- Sticky action bar (phones): appears once you scroll past the hero; hides at the quote form and footer ---------- */
   const bar = $('[data-action-bar]');
   if (bar) {
-    bar.classList.add('is-shown');
-    if ('IntersectionObserver' in window) {
+    const heroEl = $('.hero') || $('.page-hero');
+    if (!('IntersectionObserver' in window)) bar.classList.add('is-shown');
+    else {
+      let atHero = !!heroEl;
       let atQuote = false;
       let atFooter = false;
-      const update = () => bar.classList.toggle('is-shown', !atQuote && !atFooter);
+      const update = () => bar.classList.toggle('is-shown', !atHero && !atQuote && !atFooter);
+      if (heroEl) new IntersectionObserver(([e]) => { atHero = e.isIntersecting && e.intersectionRatio > 0.15; update(); }, { threshold: [0, 0.15, 0.3] }).observe(heroEl);
       if ($('#quote')) new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; update(); }, { threshold: 0.15 }).observe($('#quote'));
       new IntersectionObserver(([e]) => { atFooter = e.isIntersecting; update(); }).observe($('.site-footer'));
     }
@@ -405,26 +408,31 @@
   gsap.registerPlugin(ScrollTrigger);
 
   // Page-load sequence: headline words rise, then badge, copy, buttons, facts.
-  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-  tl.from('[data-hero-media] img, [data-hero-media] video', { scale: 1.15, duration: 2.2 }, 0)
-    .from('.hero-title .w > span', { yPercent: 110, duration: 1.1, stagger: 0.05 }, 0.15)
-    .from('.hero-badge', { y: 16, opacity: 0, duration: 0.8 }, 0.1)
-    .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.1 }, 0.55);
+  // Phones skip the photo zoom and drift: they repaint the whole hero every frame and slow the page down.
+  const small = matchMedia('(max-width: 760px)').matches;
+  const isHome = !!$('.hero');
+  if (isHome) {
+    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    if (!small) tl.from('[data-hero-media] img, [data-hero-media] video', { scale: 1.15, duration: 2.2 }, 0);
+    tl.from('.hero-title .w > span', { yPercent: 110, duration: 1.1, stagger: 0.05 }, 0.15)
+      .from('.hero-badge', { y: 16, opacity: 0, duration: 0.8 }, 0.1)
+      .from('.hero-lede, .hero-actions', { y: 24, opacity: 0, duration: 1, stagger: 0.1 }, 0.55);
+  }
 
   // Facts strip rises in as it scrolls into view.
-  gsap.from('.svc, .why-card, .wp-tile', {
+  if ($('.svc-grid')) gsap.from('.svc, .why-card', {
     y: 24, opacity: 0, duration: 0.9, ease: 'expo.out', stagger: 0.1,
     scrollTrigger: { trigger: '.svc-grid', start: 'top 85%', once: true }, clearProps: 'transform,opacity',
   });
 
-  // Hero image drifts slower than the page.
-  gsap.to('[data-hero-media] img, [data-hero-media] video', {
+  // Hero image drifts slower than the page (not on phones).
+  if (isHome && !small) gsap.to('[data-hero-media] img, [data-hero-media] video', {
     yPercent: -10, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
   });
 
   // Map frame rises into place.
-  gsap.from('.map-frame', {
+  if ($('.map-frame')) gsap.from('.map-frame', {
     y: 40, opacity: 0, scale: 0.97, duration: 1.1, ease: 'expo.out',
     scrollTrigger: { trigger: '.map-frame', start: 'top 85%', once: true },
   });
