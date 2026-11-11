@@ -829,3 +829,103 @@ h2 { font-weight: 560; letter-spacing: -0.04em; }
 }
 @media (prefers-reduced-motion: reduce) { body { background-attachment: scroll; } }
 .k-area { width: 16px; height: 11px; border-radius: 3px; background: oklch(0.8 0.115 83 / .45); box-shadow: inset 0 0 0 1px #a07d24; }
+
+/* =====================================================================
+   PHONE POLISH: simpler, roomier, easier to read and tap.
+   ===================================================================== */
+@media (max-width: 760px) {
+  :root { --section: 4.25rem; --gutter: 1.25rem; }
+  body { font-size: 1rem; }
+  h2 { font-size: 2.05rem; line-height: 1.08; }
+  .section-head { margin-bottom: 1.75rem; gap: .75rem; }
+  .section-head p, .area-head p, .faq-head p:not(.eyebrow) { font-size: 1rem; line-height: 1.55; }
+  .eyebrow { font-size: .72rem; margin-bottom: .7rem; }
+
+  /* Statement: shorter and calmer */
+  .statement { padding-block: 3.75rem; }
+  .statement .wrap::before { height: 32px; margin-bottom: 1.5rem; }
+  .statement-text { font-size: 1.45rem; line-height: 1.3; max-width: 22ch; }
+  .statement-sign { margin-top: 1.4rem; font-size: .8rem; }
+
+  /* Services: a clean two-column grid of photos with titles */
+  .svc-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .svc { flex-direction: column; }
+  .svc-img { width: auto; aspect-ratio: 1 / 1; }
+  .svc-body { padding: .85rem .9rem 1rem; gap: 0; align-content: start; }
+  .svc-body h3 { font-size: 1rem; line-height: 1.3; }
+  .svc-body p, .svc-go { display: none; }
+
+  /* Portfolio preview */
+  .wp-grid { gap: .7rem; }
+  .wp-more { margin-top: 1.5rem; }
+
+  /* Process: number, title, one line of text */
+  .process-grid { gap: 2rem; }
+  .process-words { font-size: 2.6rem; }
+  .process-head { gap: 1.1rem; }
+  .process-head p { font-size: 1.05rem; }
+  .steps { gap: .75rem; }
+  .step { padding: 1.3rem 1.25rem; gap: .4rem; }
+  .step h3 { font-size: 1.25rem; }
+  .step p { font-size: .98rem; line-height: 1.55; }
+  .step .tags { display: none; }
+
+  /* What you can expect: icon and title cards, two per row */
+  .why-grid { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .why-grid > .why-feature { grid-column: 1 / -1; min-height: 280px; }
+  .why-feature h3 { font-size: 1.7rem; }
+  .why-feature p { font-size: .98rem; }
+  .why-grid > .why-card:not(.why-feature) { grid-template-columns: 1fr; padding: 1.1rem 1rem 1.2rem; gap: .65rem; align-content: start; }
+  .why-card:not(.why-feature) .why-ic { grid-row: auto; width: 40px; height: 40px; margin: 0; }
+  .why-card:not(.why-feature) h3 { font-size: 1.02rem; line-height: 1.3; }
+  .why-card:not(.why-feature) p { display: none; }
+
+  /* Coverage: the map says it, drop the long town list */
+  .area-panel { gap: 1.5rem; }
+  .area-head h2 { max-width: 13ch; }
+  .map-key { font-size: .9rem; gap: .5rem; }
+  .towns { display: none; }
+
+  /* FAQ */
+  .faq-q { font-size: 1.05rem; min-height: 60px; padding-block: 1rem; }
+  .faq-a p { font-size: .98rem; }
+
+  /* Quote: form first, phone and WhatsApp only (emails are in the footer) */
+  .quote-copy h2 { font-size: 2.6rem; }
+  .quote-copy > p { margin-top: .8rem; font-size: 1rem; }
+  .contact-list li:nth-child(n+3) { display: none; }
+  .contact-list a { padding: .9rem 1rem; }
+  .contact-list span { font-size: 1rem; }
+  .contact-list small { font-size: .82rem; }
+  .quote-form { gap: 1.2rem; padding: 1.4rem 1.15rem; }
+  .chips { gap: .5rem; }
+  .chips span { min-height: 44px; padding: .4rem 1rem; font-size: .92rem; }
+  .field label, .chips legend { font-size: .95rem; }
+  .field input, .field textarea { min-height: 52px; font-size: 1rem; }
+  .form-privacy { font-size: .88rem; }
+  .form-privacy a, .footer-legal a { display: inline-block; padding-block: .6rem; }
+
+  /* Footer: short and to the point */
+  .site-footer { margin-top: 0; padding-top: 3.5rem; }
+  .footer-top { gap: 1.75rem; padding-bottom: 2rem; }
+  .footer-nav { display: none; }
+  .footer-about img { width: 88px; }
+  .footer-about p { font-size: .95rem; }
+  .footer-contact a, .footer-contact span { font-size: .98rem; padding-block: .55rem; }
+  .footer-label { font-size: .78rem; }
+  .footer-wordmark { font-size: 26vw; padding-top: 1rem; }
+  .footer-legal { font-size: .88rem; padding-block: 1rem 1.5rem; }
+
+  /* Our work page */
+  .page-hero-panel h1 { font-size: 2.7rem; }
+  .page-hero-panel p { font-size: 1.02rem; }
+  .gallery { columns: 2; column-gap: .6rem; }
+  .cta-inner h2 { font-size: 2.3rem; }
+  .cta-inner p { font-size: 1.02rem; }
+}
+@media (max-width: 900px) { .quote-grid { row-gap: 1rem; } .quote-form { margin-top: 1rem; } .contact-list { margin-top: 1rem; } }
+@media (max-width: 760px) {
+  .footer-wordmark { font-size: 21vw; }
+  body:has(.site-footer) { padding-bottom: 0; }
+  .site-footer { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
