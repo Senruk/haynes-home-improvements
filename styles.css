@@ -652,3 +652,49 @@ body { background: var(--paper); color: var(--ink); }
   .ab-btn { color: var(--ink); background: oklch(1 0 0 / .1); }
 }
 :focus-visible { outline-color: var(--gold); }
+
+/* =====================================================================
+   CREAM PAGE: cream background, brand green panels, gold buttons, dark green text.
+   ===================================================================== */
+:root {
+  --paper: oklch(0.955 0.024 90);             /* page background: cream */
+  --paper-2: oklch(0.915 0.03 90);            /* filter bar, quiet fills */
+  --card: oklch(0.982 0.014 92);              /* cards and form */
+  --sage: oklch(0.44 0.036 158);              /* rounded green panels */
+  --sage-deep: oklch(0.31 0.028 160);
+  --sage-soft: oklch(0.89 0.04 92);           /* footer wordmark */
+  --ink: oklch(0.25 0.03 160);
+  --ink-2: oklch(0.38 0.03 160);
+  --line: oklch(0.3 0.04 160 / 0.14);
+  --line-2: oklch(0.3 0.04 160 / 0.26);
+  --gold-ink: oklch(0.45 0.09 72);            /* gold text and icons on cream */
+  --gold-soft: oklch(0.8 0.115 83 / 0.28);
+  --error: oklch(0.48 0.17 28);
+  --ok: oklch(0.42 0.1 150);
+}
+.site-header { background: oklch(0.955 0.024 90 / .88); }
+.brand { color: var(--sage-deep); }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--ink); background: oklch(0.3 0.04 160 / .08); }
+@media (max-width: 860px) { .site-nav { background: var(--card); } }
+.statement-text .sw { color: oklch(0.25 0.03 160 / .24); }
+.statement-text .sw.on { color: var(--ink); }
+.svc-go { background: var(--paper-2); color: var(--ink); }
+.tile-cap { color: var(--ink); background: oklch(0.982 0.014 92 / .93); }
+.filter-glider { background: var(--card); box-shadow: 0 2px 8px -2px oklch(0.3 0.04 160 / .25), inset 0 0 0 1px var(--line); }
+.quote-form { background: var(--card); color: var(--ink); box-shadow: 0 30px 60px -30px oklch(0.2 0.03 160 / .6); }
+.chips span { color: var(--ink-2); background: var(--paper); box-shadow: inset 0 0 0 1px var(--line-2); }
+.field input, .field textarea { color: var(--ink); background: oklch(0.995 0.006 95); box-shadow: inset 0 0 0 1px oklch(0.3 0.04 160 / .32); }
+.field input:focus, .field textarea:focus { box-shadow: inset 0 0 0 1.5px var(--gold-ink), 0 0 0 4px oklch(0.8 0.115 83 / .3); }
+.field ::placeholder { color: oklch(0.48 0.03 155); }
+.map-label { background: var(--card) !important; color: var(--ink) !important; }
+.map-pin { background: var(--card); }
+.coverage-map .leaflet-bar a { background: var(--card); color: var(--ink); }
+.coverage-map .leaflet-control-attribution { background: oklch(0.982 0.014 92 / .85); color: var(--ink-2); }
+.coverage-map .leaflet-control-attribution a { color: var(--ink); }
+@media (max-width: 760px) {
+  .action-bar { background: oklch(0.982 0.014 92 / .95); box-shadow: inset 0 0 0 1px var(--line-2), 0 18px 40px -14px oklch(0.2 0.03 160 / .5); }
+  .ab-btn { color: var(--ink); background: var(--paper-2); }
+}
+:focus-visible { outline-color: var(--gold-ink); }
+.panel :focus-visible, .hero :focus-visible { outline-color: var(--gold); }
+@media (max-width: 760px) { .ab-btn.ab-primary { background: var(--grad-gold); color: var(--on-gold); } }
