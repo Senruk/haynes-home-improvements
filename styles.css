@@ -1556,3 +1556,14 @@ main.legal-page a { color: var(--forest); text-decoration-color: var(--brass); }
 .skip { background: var(--forest); color: var(--cream); }
 .process-words span { color: rgb(237 226 198 / .64); }
 .process-words span { color: rgb(237 226 198 / .7); }
+
+/* Full-bleed hero: the video fills the whole section, edge to edge, below the header */
+.hero { padding: 0; }
+.hero-panel {
+  border-radius: 0; box-shadow: none;
+  min-height: calc(100svh - 72px);
+}
+.hero-content { padding-bottom: clamp(2.5rem, 7vh, 4.5rem); }
+@media (max-width: 760px) {
+  .hero-panel { min-height: calc(100svh - 72px); }
+}
