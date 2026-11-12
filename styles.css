@@ -1567,3 +1567,33 @@ main.legal-page a { color: var(--forest); text-decoration-color: var(--brass); }
 @media (max-width: 760px) {
   .hero-panel { min-height: calc(100svh - 72px); }
 }
+
+/* Homepage: the video runs right to the top, under a transparent header that turns sage on scroll */
+body:has(.hero) .site-header { transition: background-color .35s var(--ease), border-color .35s var(--ease); }
+body:has(.hero) .site-header:not(.is-solid):not(.is-open) { background: transparent; border-bottom-color: transparent; }
+body:has(.hero) .site-header:not(.is-solid):not(.is-open) .btn-gold { background: rgb(44 62 53 / .55); }
+.hero { margin-top: -73px; }
+.hero-panel, .hero-panel:is(*) { min-height: 100svh; }
+.hero-shade {
+  background:
+    linear-gradient(to bottom, rgb(30 41 35 / .62) 0%, rgb(30 41 35 / .25) 14%, transparent 26%),
+    linear-gradient(to top, rgb(38 50 43 / .84) 0%, rgb(38 50 43 / .28) 30%, transparent 52%),
+    linear-gradient(90deg, rgb(38 50 43 / .62) 0%, rgb(38 50 43 / .22) 40%, transparent 65%);
+}
+.hero-content { padding-top: calc(73px + 3rem); }
+@media (max-width: 760px) {
+  .hero-panel { min-height: 100svh; }
+  .hero-shade { background: linear-gradient(to bottom, rgb(30 41 35 / .6) 0%, transparent 18%), linear-gradient(to top, rgb(34 45 39 / .9) 0%, rgb(36 47 41 / .55) 30%, rgb(40 52 45 / .1) 55%, transparent 70%); }
+}
+/* Keep the header readable over the bright skylight */
+.hero-shade {
+  background:
+    linear-gradient(to bottom, rgb(22 31 26 / .82) 0%, rgb(24 33 28 / .55) 9%, rgb(28 38 32 / .22) 18%, transparent 30%),
+    linear-gradient(to top, rgb(38 50 43 / .84) 0%, rgb(38 50 43 / .28) 30%, transparent 52%),
+    linear-gradient(90deg, rgb(38 50 43 / .62) 0%, rgb(38 50 43 / .22) 40%, transparent 65%);
+}
+body:has(.hero) .site-header:not(.is-solid):not(.is-open) .site-nav a:not(.btn),
+body:has(.hero) .site-header:not(.is-solid):not(.is-open) .brand { text-shadow: 0 1px 12px rgb(15 22 18 / .85), 0 0 2px rgb(15 22 18 / .6); }
+@media (max-width: 760px) {
+  .hero-shade { background: linear-gradient(to bottom, rgb(22 31 26 / .8) 0%, rgb(24 33 28 / .45) 10%, transparent 22%), linear-gradient(to top, rgb(34 45 39 / .9) 0%, rgb(36 47 41 / .55) 30%, rgb(40 52 45 / .1) 55%, transparent 70%); }
+}
