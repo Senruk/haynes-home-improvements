@@ -259,19 +259,52 @@
     if (submit.getAttribute('aria-disabled') === 'true') return;
     submit.setAttribute('aria-disabled', 'true');
     submitLabel.textContent = 'Sending…';
+    // Build the enquiry once: used for Web3Forms and for the email / WhatsApp hand-off.
+    const fd = new FormData(form);
+    const val = (k) => (fd.get(k) || '').toString().trim();
+    const lines = [
+      `Project: ${val('project')}`,
+      `Name: ${val('name')}`,
+      `Phone: ${val('phone')}`,
+      `Postcode: ${val('postcode').toUpperCase()}`,
+      val('email') && `Email: ${val('email')}`,
+      val('message') && `About the room: ${val('message')}`,
+    ].filter(Boolean);
+    const subject = `Quote request: ${val('project')} (${val('postcode').toUpperCase()})`;
+    const showHandOff = (lead) => {
+      const NL = String.fromCharCode(10);
+      const body = lines.join(NL) + NL + NL + 'Sent from hayneshomeimprovementsltd.co.uk';
+      const mail = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const wa = `https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent("Hi Haynes, I'd like a quote." + NL + lines.join(NL))}`;
+      status.classList.add('is-handoff');
+      status.innerHTML = '';
+      status.append(Object.assign(document.createElement('span'), { className: 'handoff-lead', textContent: lead }));
+      const row = Object.assign(document.createElement('span'), { className: 'handoff-actions' });
+      row.append(
+        Object.assign(document.createElement('a'), { className: 'btn btn-gold', href: mail, textContent: 'Send by email' }),
+        Object.assign(document.createElement('a'), { className: 'btn btn-ghost', href: wa, target: '_blank', rel: 'noopener', textContent: 'Send on WhatsApp' }),
+      );
+      status.append(row);
+      row.querySelector('a').focus();
+    };
+    const key = (form.dataset.web3formsKey || '').trim();
     try {
-      const res = await fetch('/', {
+      if (!key) {
+        showHandOff('Nearly done. Choose how to send your request; your details are already filled in:');
+        return;
+      }
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString(),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: key, subject, from_name: 'Haynes website', botcheck: val('company'), ...Object.fromEntries(fd.entries()) }),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || out.success === false) throw new Error(String(res.status));
       form.reset();
       status.classList.add('is-ok');
       status.textContent = 'Thanks, your quote request has been sent. We’ll be in touch to arrange a visit.';
     } catch {
-      status.classList.add('is-err');
-      status.textContent = 'Your quote request didn’t send. Please try again, or call us free on 0800 302 9909.';
+      showHandOff('Sorry, that didn’t go through. You can send it by email or WhatsApp instead; your details are already filled in:');
     } finally {
       submit.removeAttribute('aria-disabled');
       submitLabel.textContent = 'Send my quote request';
