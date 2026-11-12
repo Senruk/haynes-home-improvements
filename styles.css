@@ -1245,3 +1245,20 @@ main.legal-page a { color: var(--brand-cream); text-decoration-color: rgb(253 23
 .faq-head a { color: var(--ink); }
 .footer-wordmark { font-size: clamp(3.5rem, 16vw, 14rem); letter-spacing: .02em; }
 @media (max-width: 760px) { .footer-wordmark { font-size: 16.5vw; } }
+
+/* Reviews on white cards (Google first, then Bark) */
+.rv-summary { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; align-items: center; color: var(--ink); }
+.rv-summary span { display: inline-flex; align-items: center; gap: .45rem; }
+.rv-summary strong { color: var(--brand-cream); font-family: var(--serif); }
+.rv-card figure { background: #FFFFFF; box-shadow: 0 1px 0 rgb(0 0 0 / .04), 0 24px 44px -28px rgb(15 22 18 / .75); }
+.rv-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.rv-stars, .rv-card .rv-stars { color: #C9A24D; }
+.rv-src { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; font-weight: 500; color: #4D5A52; }
+.rv-card blockquote p { color: #26332C; }
+.rv-card figcaption { border-top-color: #E7E2D6; }
+.rv-card figcaption strong { color: #2F4036; }
+.rv-card figcaption span { color: #4D5A52; }
+.rv-more { margin-top: 1.25rem; }
+.rv-more a { color: var(--brand-cream); font-weight: 500; text-underline-offset: 4px; text-decoration-color: rgb(253 233 183 / .6); padding-block: .6rem; display: inline-block; }
+.rv-more a:hover { text-decoration-color: var(--brand-cream); }
+@media (min-width: 761px) { .rv-list { padding-bottom: 2.75rem; } }
