@@ -296,7 +296,12 @@
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ access_key: key, subject, from_name: 'Haynes website', botcheck: val('company'), ...Object.fromEntries(fd.entries()) }),
+        body: JSON.stringify(Object.assign(
+          { access_key: key, subject, from_name: 'Haynes website quote form', botcheck: val('company') },
+          { 'Project': val('project'), 'Name': val('name'), 'Phone': val('phone'), 'Postcode': val('postcode').toUpperCase() },
+          val('email') ? { 'Email': val('email'), replyto: val('email') } : {},
+          val('message') ? { 'About the room': val('message') } : {},
+        )),
       });
       const out = await res.json().catch(() => ({}));
       if (!res.ok || out.success === false) throw new Error(String(res.status));
