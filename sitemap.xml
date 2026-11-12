@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Swap to https://www.hayneshomeimprovements.com/ once the domain is connected -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hayneshomeimprovementsltd.co.uk/</loc>
-    <lastmod>2026-11-10</lastmod>
-    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-feature-wall.jpg</image:loc></image:image>
+    <lastmod>2026-11-12</lastmod>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-feature-wall.jpg</image:loc><image:title>Walnut fitted wardrobe wall with handleless doors</image:title></image:image>
   </url>
   <url>
     <loc>https://hayneshomeimprovementsltd.co.uk/work</loc>
-    <lastmod>2026-11-10</lastmod>
-    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-media-wall.jpg</image:loc></image:image>
-    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/home-office.jpg</image:loc></image:image>
-    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/kitchen-island.jpg</image:loc></image:image>
+    <lastmod>2026-11-12</lastmod>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-feature-wall.jpg</image:loc><image:title>Wall of walnut handleless wardrobes under a crystal pendant light</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/home-office.jpg</image:loc><image:title>Sage green home office with desk, drawer pedestals and shelving towers</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/wardrobe-white-interior.jpg</image:loc><image:title>Wide white wardrobe interior with four bays of rails and drawer stacks under a cornice</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-media-wall.jpg</image:loc><image:title>Loft media wall with angled shelves following the roof and a row of drawers below</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walk-in-wardrobe-grey.jpg</image:loc><image:title>Dark grey walk-in wardrobe with hanging rail, drawer bank and corner shelves</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/kitchen-galley.jpg</image:loc><image:title>Galley kitchen in light grey gloss with marble-effect worktops and splashback</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/wardrobe-grey-desk.jpg</image:loc><image:title>Grey fitted wardrobes with a built-in desk recess and top cupboard</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-dressing-bench.jpg</image:loc><image:title>Loft bedroom with drawers under the windows and an upholstered storage bench</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-wardrobes-open.jpg</image:loc><image:title>Run of walnut wardrobes with doors open showing mirrors, shelves and drawers, plus a dressing table end</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/wardrobe-white-doors.jpg</image:loc><image:title>Four-door white fitted wardrobe built into an alcove</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-eaves-storage.jpg</image:loc><image:title>Eaves storage with angled shelving, open cubbies and a long drawer rail on herringbone flooring</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-wardrobe-doors-open.jpg</image:loc><image:title>Tall walnut wardrobe with doors open revealing shelves and hidden drawers</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/home-office-side.jpg</image:loc><image:title>Side view of a built-in home office with desk and open shelving</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/sliding-wardrobe-interior.jpg</image:loc><image:title>Sliding wardrobe interior in white with a black frame, central shelving and drawers</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-media-wall-room.jpg</image:loc><image:title>Loft media wall with drawers, seen across a bedroom with herringbone floor</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-wardrobe-city-view.jpg</image:loc><image:title>Walnut wardrobe run in a high-rise flat with city views</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/kitchen-island.jpg</image:loc><image:title>Kitchen with island, wine rack and tall housings under a roof lantern</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/eaves-cabinets.jpg</image:loc><image:title>Low grey cupboards and drawers built along the eaves under a skylight</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walk-in-wardrobe-corner.jpg</image:loc><image:title>Corner of a grey walk-in wardrobe with deep drawers and curved shelves</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-window-drawers.jpg</image:loc><image:title>Wide drawer unit fitted beneath a sash window in a loft</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/wardrobe-grey-interior.jpg</image:loc><image:title>Grey wardrobes open to show white interiors with rails and drawers</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/walnut-wardrobe-drawers.jpg</image:loc><image:title>Walnut wardrobe with open internal drawers and stepped side shelves</image:title></image:image>
+    <image:image><image:loc>https://hayneshomeimprovementsltd.co.uk/assets/img/full/loft-storage-install.jpg</image:loc><image:title>Loft storage part-way through installation, shelving built around the roof slope</image:title></image:image>
   </url>
 </urlset>

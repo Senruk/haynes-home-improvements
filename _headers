@@ -1,4 +1,10 @@
-# Cloudflare Pages caching. Each path matches one rule only.
+# Cloudflare Pages headers. Security headers apply to every page; caching per file type.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  X-Frame-Options: SAMEORIGIN
 /assets/img/*
   Cache-Control: public, max-age=604800
 /assets/video/*
