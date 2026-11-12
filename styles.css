@@ -1384,3 +1384,175 @@ main.legal-page a { color: var(--green); text-decoration-color: rgb(47 64 54 / .
 .svc-go, .svc:hover .svc-go { background: #FDE9B7; color: #2F4036; }
 .rv-stars, .rv-card .rv-stars { color: #B8902F; }
 .rv-stars, .rv-card .rv-stars { color: #9C7A22; }
+
+/* =====================================================================
+   SIGNATURE SAGE & CREAM (client brief, 2026-11-12)
+   Sage #6B7C72 + cream #EDE2C6 lead; light sections alabaster #F7F3E8 with #25302A text;
+   CTAs forest #2C3E35 with cream; brass #B5894C as an accent; borders #C8D0C8.
+   Bands that carry small text use #58665D (one step deeper than #6B7C72) so cream text passes WCAG AA.
+   ===================================================================== */
+:root {
+  --sig-sage: #6B7C72; --band: #58665D; --cream: #EDE2C6; --alabaster: #F7F3E8;
+  --forest: #2C3E35; --brass: #B5894C; --brass-ink: #9C7436; --border: #C8D0C8;
+  --paper: #F7F3E8; --paper-2: #EFE9DA; --card: #FBF8F0;
+  --ink: #25302A; --ink-2: #4A5750;
+  --line: #C8D0C8; --line-2: #B4BEB6;
+  --gold-line-soft: #C8D0C8; --gold-line: #B4BEB6;
+  --gold: #9C7436; --gold-ink: #9C7436; --green: #2C3E35;
+  --brand-cream: #EDE2C6; --brand-ink: #2C3E35;
+  --shadow-rich: 0 1px 0 rgb(44 62 53 / .05), 0 24px 44px -32px rgb(37 48 42 / .45);
+}
+/* Sage bands: cream lettering */
+.panel, .site-footer, .ticker, .hero, .page-hero, .lightbox, .reviews, .site-header {
+  --ink: #F7F3E8; --ink-2: #EDE2C6; --card: #F7F3E8;
+  --line: rgb(237 226 198 / .22); --line-2: rgb(237 226 198 / .38);
+  --gold-line-soft: rgb(237 226 198 / .22); --gold-line: rgb(237 226 198 / .38);
+  --gold: #EDE2C6; --gold-ink: #EDE2C6;
+}
+body, body:has(.site-footer) { background: var(--alabaster); color: #25302A; }
+h1, h2, h3 { color: var(--forest); }
+p { color: var(--ink); }
+.section-head p, .area-head p, .faq-head p, .quote-copy > p { color: var(--ink-2); }
+.panel h2, .panel h3, .page-hero h1, .reviews h2, .site-footer strong { color: var(--cream); }
+.panel p, .panel .step p, .reviews .section-head p { color: var(--ink); }
+:focus-visible { outline-color: var(--forest); }
+.panel :focus-visible, .hero :focus-visible, .site-footer :focus-visible, .page-hero :focus-visible, .reviews :focus-visible, .site-header :focus-visible { outline-color: var(--cream); }
+::selection { background: var(--forest); color: var(--cream); }
+
+/* Header: the signature sage with the cream logo; nav set large + bold so it reads at AA */
+.site-header, .site-header.is-solid { background: var(--sig-sage); border-bottom: 1px solid rgb(237 226 198 / .28); box-shadow: none; }
+.brand { color: var(--cream); }
+.brand img { content: url(assets/mark-cream.png); }
+.brand-sub { color: var(--cream); }
+.site-nav a:not(.btn) { color: var(--alabaster); font-size: 1.17rem; font-weight: 700; letter-spacing: .005em; }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--cream); background: rgb(44 62 53 / .25); }
+.nav-toggle { background: rgb(44 62 53 / .25); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .5); }
+.burger i { background: var(--cream); }
+@media (max-width: 860px) {
+  .site-nav { background: var(--band); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .25), 0 30px 60px -24px rgb(37 48 42 / .5); }
+  .site-nav a:not(.btn) { color: var(--alabaster); font-size: 1.1rem; }
+  .site-header.is-open::after { background: rgb(37 48 42 / .45); }
+}
+@media (max-width: 760px) { .site-header { background: var(--sig-sage); } }
+
+/* Buttons: forest with cream text everywhere; a cream rim on sage so they stand out there too */
+.btn-gold, .btn-gold:hover,
+.panel .btn-gold, .hero .btn-gold, .page-hero .btn-gold, .site-header .btn-gold, .site-footer .btn-gold {
+  background: var(--forest); color: var(--cream); box-shadow: 0 12px 26px -16px rgb(37 48 42 / .7);
+}
+.panel .btn-gold, .hero .btn-gold, .page-hero .btn-gold, .site-header .btn-gold, .reviews .btn-gold { box-shadow: inset 0 0 0 1.5px var(--cream), 0 12px 26px -16px rgb(20 28 24 / .7); }
+.btn-gold:hover, .panel .btn-gold:hover, .hero .btn-gold:hover, .page-hero .btn-gold:hover, .site-header .btn-gold:hover { background: #22312A; box-shadow: inset 0 0 0 1.5px var(--brass), 0 14px 30px -16px rgb(20 28 24 / .8); }
+.btn-gold .btn-icon, .panel .btn-gold .btn-icon, .hero .btn-gold .btn-icon, .page-hero .btn-gold .btn-icon { background: var(--cream); color: var(--forest); }
+.btn-ghost { color: var(--cream); background: rgb(44 62 53 / .25); box-shadow: inset 0 0 0 1.5px rgb(237 226 198 / .7); }
+.btn-ghost:hover { background: rgb(44 62 53 / .45); box-shadow: inset 0 0 0 1.5px var(--cream); }
+.btn-outline { color: var(--forest); background: transparent; box-shadow: inset 0 0 0 1.5px var(--forest); }
+.btn-outline:hover { background: rgb(44 62 53 / .07); }
+
+/* Hero frame and ticker */
+.hero { background: transparent; }
+.hero-panel { background: var(--forest); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .25); }
+.ticker { background: var(--band); border-block: 1px solid rgb(237 226 198 / .2); }
+.ticker span { color: var(--cream); }
+
+/* Light content: services, why, FAQ, galleries on alabaster */
+.services, .why, .faq, .work-page { background: var(--alabaster); }
+.svc, .svc:hover { box-shadow: 0 0 0 1px var(--border), 0 26px 46px -32px rgb(37 48 42 / .55); }
+.svc-go, .svc:hover .svc-go { background: var(--cream); color: var(--forest); }
+.why-card:not(.why-feature) { background: transparent; box-shadow: none; border-radius: 0; padding: 1.4rem 0 1.6rem; border-top: 1px solid var(--border); }
+.why-card h3 { color: var(--forest); }
+.why-card p { color: var(--ink-2); }
+.why-ic { background: var(--sig-sage); color: var(--cream); box-shadow: none; }
+
+/* Sage feature bands */
+.panel { background: var(--band); box-shadow: none; }
+.process-words span { color: rgb(237 226 198 / .45); }
+.process-words span.on, .process-words span:first-child { color: var(--cream); }
+.step, .step.on { background: rgb(44 62 53 / .28); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .18); }
+.step.on { background: rgb(44 62 53 / .45); box-shadow: inset 0 0 0 1px var(--brass); }
+.step-num { color: var(--cream); }
+.tags li { color: var(--ink); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .35); }
+.process-photo { box-shadow: inset 0 0 0 1px rgb(237 226 198 / .3); }
+
+/* Testimonial highlight: a full sage band with alabaster review cards */
+.reviews { background: var(--band); padding-block: var(--section); }
+.rv-summary, .rv-summary span { color: var(--ink); }
+.rv-summary strong { color: var(--cream); }
+.rv-card figure { background: var(--alabaster); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .5), 0 24px 44px -30px rgb(20 28 24 / .6); }
+.rv-card blockquote p { color: #25302A; }
+.rv-card figcaption { border-top-color: var(--border); }
+.rv-card figcaption strong { color: var(--forest); }
+.rv-card figcaption span, .rv-src { color: #4A5750; }
+.rv-stars, .rv-card .rv-stars { color: var(--brass-ink); }
+.rv-more a { color: var(--cream); text-decoration-color: var(--brass); }
+@media (min-width: 761px) { .rv-list { -webkit-mask-image: none; mask-image: none; } }
+
+/* Map band */
+.map-frame { box-shadow: inset 0 0 0 1px rgb(237 226 198 / .35); }
+.map-label { background: var(--forest) !important; color: var(--cream) !important; }
+.map-home span { background: var(--cream); color: var(--forest); }
+.map-pin { background: var(--cream); box-shadow: 0 0 0 3px var(--forest); }
+
+/* FAQ */
+.faq-q, .faq-q:hover { color: #25302A; }
+.faq-q:hover { color: var(--forest); }
+.faq-icon { color: var(--forest); box-shadow: inset 0 0 0 1px var(--line-2); }
+.faq-q[aria-expanded="true"] .faq-icon { background: var(--forest); color: var(--cream); }
+.faq-a p { color: var(--ink-2); }
+.faq-list, .faq-item { border-color: var(--border); }
+.faq-head a { color: var(--forest); text-decoration-color: var(--brass); }
+
+/* Quote: sage band, alabaster form card, forest submit */
+.quote-form { background: var(--alabaster); color: #25302A; box-shadow: inset 0 0 0 1px rgb(237 226 198 / .5), 0 40px 80px -44px rgb(20 28 24 / .7); }
+.quote-form::before { background: var(--brass); }
+.quote-form .chips legend, .quote-form .field label { color: #25302A; }
+.quote-form .optional, .panel .quote-form p, .panel .quote-form .form-privacy, .quote-form .form-privacy { color: #4A5750; }
+.quote-form .form-privacy a { color: var(--forest); text-decoration-color: var(--brass); }
+.quote-form .chips span { background: var(--card); color: #25302A; box-shadow: inset 0 0 0 1px #7A887F; }
+.quote-form .chips label:hover span { box-shadow: inset 0 0 0 1.5px var(--forest); }
+.quote-form .chips input:checked + span { background: var(--forest); color: var(--cream); box-shadow: none; }
+.quote-form .field input, .quote-form .field textarea { background: #FBF8F0; color: #25302A; box-shadow: inset 0 0 0 1px #7A887F; }
+.quote-form .field input:focus, .quote-form .field textarea:focus { box-shadow: inset 0 0 0 2px var(--forest), 0 0 0 4px rgb(181 137 76 / .3); }
+.quote-form .field ::placeholder { color: #5C6862; }
+.panel .quote-form .field-error, .quote-form .field-error { color: #8E2F1F; }
+.quote-form :focus-visible { outline-color: var(--forest); }
+.quote-form .btn-gold { box-shadow: 0 12px 26px -16px rgb(37 48 42 / .7); }
+.form-status.is-handoff { background: #EFE9DA; box-shadow: inset 0 0 0 1px var(--border); color: #25302A; }
+.form-status.is-handoff .btn-ghost { color: var(--forest); background: transparent; box-shadow: inset 0 0 0 1.5px var(--forest); }
+.panel .quote-form .form-status.is-ok { color: #2C3E35; }
+.contact-list a { color: var(--ink); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .25); }
+.contact-list .ic { background: var(--cream); color: var(--forest); }
+
+/* Footer: sage and cream */
+.site-footer, .site-footer:has(*) { background: var(--band); border-top: 3px solid var(--sig-sage); }
+.footer-label, .footer-about strong { color: var(--cream); }
+.footer-about p, .footer-nav a, .footer-contact a, .footer-contact span, .footer-legal, .footer-legal a { color: var(--alabaster); }
+.footer-nav a:hover, .footer-contact a:hover { color: var(--cream); text-decoration-color: var(--brass); }
+.socials a { color: var(--cream); box-shadow: inset 0 0 0 1px rgb(237 226 198 / .4); }
+.socials a:hover { background: var(--cream); color: var(--forest); }
+.footer-wordmark { color: rgb(237 226 198 / .14); }
+
+/* Phone action bar: alabaster bar, forest primary */
+@media (max-width: 760px) {
+  .action-bar { background: rgb(247 243 232 / .97); box-shadow: inset 0 0 0 1px var(--border), 0 18px 40px -14px rgb(37 48 42 / .45); }
+  .ab-btn { color: var(--forest); background: #EFE9DA; }
+  .ab-primary, .ab-btn.ab-primary { background: var(--forest); color: var(--cream); }
+}
+
+/* Our work page */
+.page-hero-panel { background: var(--band); }
+.page-hero-panel p { color: var(--ink); }
+.filters { background: #EFE9DA; box-shadow: inset 0 0 0 1px var(--border); }
+.filters button { color: #4A5750; }
+.filters button:hover:not([aria-pressed="true"]) { color: var(--forest); }
+.filters button[aria-pressed="true"] { color: var(--cream); }
+.filter-glider, .filters:not(.has-glider) button[aria-pressed="true"] { background: var(--forest); }
+.tile { box-shadow: 0 0 0 1px var(--border), 0 22px 40px -30px rgb(37 48 42 / .5); }
+.cta-panel { background: var(--band); }
+
+/* Privacy */
+main.legal-page h1, main.legal-page h2 { color: var(--forest); }
+main.legal-page p, main.legal-page li { color: #4A5750; }
+main.legal-page a { color: var(--forest); text-decoration-color: var(--brass); }
+.skip { background: var(--forest); color: var(--cream); }
+.process-words span { color: rgb(237 226 198 / .64); }
+.process-words span { color: rgb(237 226 198 / .7); }
