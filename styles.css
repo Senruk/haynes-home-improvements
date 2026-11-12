@@ -1267,3 +1267,120 @@ main.legal-page a { color: var(--brand-cream); text-decoration-color: rgb(253 23
 .handoff-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
 .handoff-actions .btn { flex: 1 1 180px; min-height: 50px; }
 .site-header, .site-header.is-solid { background: #64746B; }
+
+/* =====================================================================
+   CRISP WHITE (chosen 2026-11-12): white page, dark logo-green type, sage bands
+   with cream lettering for the process, map, quote and footer. Same Domine + Jost.
+   ===================================================================== */
+:root {
+  --paper: #FFFFFF; --paper-2: #F5F2EA; --card: #F7F4EC;
+  --ink: #26332C; --ink-2: #4A574F;
+  --line: rgb(47 64 54 / .12); --line-2: rgb(47 64 54 / .24);
+  --gold-line-soft: rgb(47 64 54 / .1); --gold-line: rgb(47 64 54 / .2);
+  --green: #2F4036; --band: #5D6B63; --band-deep: #3E4A43;
+  --shadow-rich: 0 1px 0 rgb(47 64 54 / .05), 0 26px 46px -32px rgb(30 45 36 / .5);
+}
+/* Dark bands keep cream-on-sage */
+.panel, .site-footer, .ticker, .hero, .page-hero, .lightbox {
+  --ink: #FFF8EA; --ink-2: #F2EAD6; --card: #6A776F;
+  --line: rgb(253 233 183 / .16); --line-2: rgb(253 233 183 / .3);
+  --gold-line-soft: rgb(253 233 183 / .18); --gold-line: rgb(253 233 183 / .32);
+}
+body, body:has(.site-footer) { background: #FFFFFF; color: var(--ink); }
+h1, h2, h3 { color: var(--green); }
+.panel h2, .panel h3, .page-hero h1, .site-footer h2 { color: #FDE9B7; }
+p { color: var(--ink); }
+.section-head p, .area-head p, .faq-head p, .quote-copy > p { color: var(--ink-2); }
+.panel p, .panel .step p { color: var(--ink); }
+:focus-visible { outline-color: var(--green); }
+.panel :focus-visible, .hero :focus-visible, .site-footer :focus-visible, .page-hero :focus-visible { outline-color: #FDE9B7; }
+::selection { background: var(--green); color: #FDE9B7; }
+
+/* Header: white, green logo */
+.site-header, .site-header.is-solid { background: #FFFFFF; border-bottom: 1px solid rgb(47 64 54 / .1); }
+.brand { color: var(--green); }
+.brand img { content: url(assets/mark-green.png); }
+.brand-sub, .site-nav a:not(.btn) { color: var(--ink-2); }
+.site-nav a:not(.btn):hover, .site-nav a[aria-current="page"] { color: var(--green); background: rgb(47 64 54 / .06); }
+.nav-toggle { background: #fff; box-shadow: inset 0 0 0 1px rgb(47 64 54 / .2); }
+.burger i { background: var(--green); }
+@media (max-width: 860px) {
+  .site-nav { background: #FFFFFF; box-shadow: inset 0 0 0 1px rgb(47 64 54 / .1), 0 30px 60px -24px rgb(30 45 36 / .35); }
+  .site-nav a:not(.btn) { color: var(--ink); }
+  .site-header.is-open::after { background: rgb(30 45 36 / .35); }
+}
+
+/* Buttons: dark green on white, cream inside dark bands */
+.btn-gold, .btn-gold:hover { background: var(--green); color: #FDE9B7; box-shadow: 0 12px 26px -16px rgb(30 45 36 / .7); }
+.btn-gold:hover { background: #26352C; }
+.btn-gold .btn-icon { background: #FDE9B7; color: var(--green); }
+.panel .btn-gold, .hero .btn-gold, .page-hero .btn-gold, .site-footer .btn-gold { background: #FDE9B7; color: var(--green); }
+.panel .btn-gold:hover, .hero .btn-gold:hover, .page-hero .btn-gold:hover { background: #FFF2CF; }
+.panel .btn-gold .btn-icon, .hero .btn-gold .btn-icon, .page-hero .btn-gold .btn-icon { background: var(--green); color: #FDE9B7; }
+.btn-outline { color: var(--green); box-shadow: inset 0 0 0 1.5px rgb(47 64 54 / .45); }
+.btn-outline:hover { background: rgb(47 64 54 / .06); box-shadow: inset 0 0 0 1.5px var(--green); }
+
+/* Hero sits in a white frame; ticker is a deep green band */
+.hero { background: transparent; }
+.ticker { background: var(--green); border-block: 0; }
+
+/* Services */
+.svc, .svc:hover { box-shadow: 0 30px 50px -34px rgb(30 45 36 / .55); }
+
+/* Bands */
+.panel { background: var(--band); box-shadow: none; }
+.step, .step.on { background: rgb(38 53 44 / .3); }
+.step.on { background: rgb(38 53 44 / .48); box-shadow: inset 0 0 0 1px rgb(253 233 183 / .3); }
+
+/* What you can expect: a calm list, no boxes */
+.why-card:not(.why-feature) { background: transparent; box-shadow: none; border-radius: 0; padding: 1.4rem 0 1.6rem; border-top: 1px solid rgb(47 64 54 / .16); }
+.why-card h3 { color: var(--green); }
+.why-card p { color: var(--ink-2); }
+.why-ic { background: var(--green); color: #FDE9B7; box-shadow: none; }
+
+/* Reviews */
+.rv-card figure { background: #F7F4EC; box-shadow: 0 0 0 1px rgb(47 64 54 / .06), 0 26px 44px -32px rgb(30 45 36 / .45); }
+.rv-summary, .rv-summary span { color: var(--ink); }
+.rv-summary strong { color: var(--green); }
+.rv-more a, .faq-head a { color: var(--green); text-decoration-color: rgb(47 64 54 / .4); }
+
+/* FAQ */
+.faq-q, .faq-q:hover { color: var(--ink); }
+.faq-q:hover { color: var(--green); }
+.faq-icon { color: var(--green); box-shadow: inset 0 0 0 1px rgb(47 64 54 / .25); }
+.faq-q[aria-expanded="true"] .faq-icon { background: var(--green); color: #FDE9B7; }
+.faq-a p { color: var(--ink-2); }
+.faq-list, .faq-item { border-color: rgb(47 64 54 / .16); }
+
+/* Footer */
+.site-footer, .site-footer:has(*) { background: var(--band-deep); border-top: 0; }
+
+/* Phone action bar: white bar, green primary */
+@media (max-width: 760px) {
+  .site-header { background: #FFFFFF; }
+  .action-bar { background: rgb(255 255 255 / .97); box-shadow: inset 0 0 0 1px rgb(47 64 54 / .14), 0 18px 40px -14px rgb(30 45 36 / .4); }
+  .ab-btn { color: var(--green); background: #F2EFE7; }
+  .ab-primary, .ab-btn.ab-primary { background: var(--green); color: #FDE9B7; }
+}
+
+/* Our work page */
+.page-hero-panel { background: var(--band); }
+.filters { background: #F5F2EA; box-shadow: inset 0 0 0 1px rgb(47 64 54 / .08); }
+.filters button { color: var(--ink-2); }
+.filters button:hover:not([aria-pressed="true"]) { color: var(--green); }
+.filters button[aria-pressed="true"] { color: #FDE9B7; }
+.filter-glider { background: var(--green); }
+.filters:not(.has-glider) button[aria-pressed="true"] { background: var(--green); }
+.tile { box-shadow: 0 22px 40px -30px rgb(30 45 36 / .5); }
+.cta-panel { background: var(--band); }
+
+/* Privacy */
+main.legal-page h1, main.legal-page h2 { color: var(--green); }
+main.legal-page p, main.legal-page li { color: var(--ink-2); }
+main.legal-page a { color: var(--green); text-decoration-color: rgb(47 64 54 / .4); }
+:root { --gold-ink: #2F4036; --gold: #2F4036; }
+.panel, .site-footer, .ticker, .hero, .page-hero, .lightbox { --gold-ink: #FDE9B7; --gold: #FDE9B7; }
+.svc-body p { color: #F2EAD6; }
+.svc-go, .svc:hover .svc-go { background: #FDE9B7; color: #2F4036; }
+.rv-stars, .rv-card .rv-stars { color: #B8902F; }
+.rv-stars, .rv-card .rv-stars { color: #9C7A22; }
