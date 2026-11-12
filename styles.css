@@ -1706,3 +1706,16 @@ body:has(.hero) .site-header:not(.is-solid):not(.is-open) { -webkit-backdrop-fil
 .btn-ghost:hover { background: rgb(36 50 42 / .5); }
 @media (max-width: 860px) { .site-nav { background: rgb(88 102 93 / .97); -webkit-backdrop-filter: blur(20px) saturate(140%); backdrop-filter: blur(20px) saturate(140%); } }
 .site-header.is-open { -webkit-backdrop-filter: none; backdrop-filter: none; background: #6B7C72; }
+
+/* Reviews: same rounded, inset sage panel as the other bands, with a clear gap before the map */
+.reviews {
+  margin: 0 var(--inset);
+  border-radius: var(--r-lg);
+  padding-block: clamp(3.5rem, 2.5rem + 4vw, 5.5rem) clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  box-shadow: inset 0 0 0 1px rgb(237 226 198 / .14);
+  overflow: hidden;
+}
+@media (min-width: 761px) { .rv-list { padding-bottom: 1.75rem; } }
+.rv-more { margin-top: .75rem; }
+.reviews + .panel-section { margin-top: clamp(1rem, 2vw, 1.75rem); }
+.panel-section, .reviews { scroll-margin-top: 80px; }
